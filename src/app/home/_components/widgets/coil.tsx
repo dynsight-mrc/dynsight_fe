@@ -26,7 +26,7 @@ export default function Coil({ room, coilDetails }: any) {
   const getCoilValue = useCallback(async () => {
     try {
       const res = await fetch(
-        `http://localhost:3001/home/api/devices/coils/${coilDetails.id}`
+        `${process.env.NEXT_PUBLIC_HOST}/home/api/devices/coils/${coilDetails.id}`
       );
       let data = await res.json();
       res.ok && setValue(data);
@@ -36,7 +36,27 @@ export default function Coil({ room, coilDetails }: any) {
 
     /*     setValue(coilValue); */
   }, []);
+  const changeCoilValue = async (event: MouseEvent) => {
+    setMenuIsOpen(false);
+    let valueToSend = value ? 0 : 1;
+    
+    try {
+      let res = await fetch(
+        `${process.env.NEXT_PUBLIC_HOST}/home/api/devices/coils/${coilDetails.id}`,
+        {
+          method: "POST",
+          headers: {
+            'Content-Type': 'application/json'
+            // You may include other headers as needed
+          },
+          body: JSON.stringify({ value: valueToSend }),
+        }
+      );
+     res.ok && setValue(Boolean(valueToSend));
+    } catch (error) {}
 
+    event.stopPropagation();
+  };
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
@@ -59,27 +79,7 @@ export default function Coil({ room, coilDetails }: any) {
     event.stopPropagation();
   };
 
-  const changeCoilValue = async (event: MouseEvent) => {
-    setMenuIsOpen(false);
-    let valueToSend = value ? 0 : 1;
-    
-    try {
-      let res = await fetch(
-        `http://localhost:3001/home/api/devices/coils/${coilDetails.id}`,
-        {
-          method: "POST",
-          headers: {
-            'Content-Type': 'application/json'
-            // You may include other headers as needed
-          },
-          body: JSON.stringify({ value: valueToSend }),
-        }
-      );
-     res.ok && setValue(Boolean(valueToSend));
-    } catch (error) {}
 
-    event.stopPropagation();
-  };
 
   return (
     <div

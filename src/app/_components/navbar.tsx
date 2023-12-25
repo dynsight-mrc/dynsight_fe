@@ -6,6 +6,7 @@ import { IoReorderThreeOutline } from "react-icons/io5";
 import { useRecoilState } from "recoil";
 import { IoMdClose } from "react-icons/io";
 import { sidbarMenuStateAtom } from "@/src/atoms/sidbar-menu-state-atom";
+import { signOut } from "next-auth/react";
 
 function Navbar() {
   const [sidbarMenuState, setSidbarMenuState] =
@@ -17,6 +18,7 @@ function Navbar() {
   const openSidbarMenu = () => {
     setSidbarMenuState(true);
   };
+ 
   return (
     <div className="flex flex-row items-center p-2 sm:p-0 ">
       <IoReorderThreeOutline

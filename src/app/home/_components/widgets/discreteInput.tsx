@@ -25,7 +25,7 @@ export default function DiscreteInput({ room, discreteInputDetails }: any) {
   const getDiscreteInputValue = useCallback(async () => {
 
     const result = await fetch(
-      `http://localhost:3001/home/api/devices/discreteinputs/${discreteInputDetails.id}`
+      `${process.env.NEXT_PUBLIC_HOST}/home/api/devices/discreteinputs/${discreteInputDetails.id}`
     );
     let data = await result.json()
     setValue(data);

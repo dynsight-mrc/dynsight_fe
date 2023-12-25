@@ -14,6 +14,7 @@ import UserMenu from "./userMenu";
 import UserComponent from "./userComponent";
 import { useRecoilState } from "recoil";
 import { sidbarMenuStateAtom } from "@/src/atoms/sidbar-menu-state-atom";
+import { signOut } from "next-auth/react";
 
 
 
@@ -29,7 +30,7 @@ function SidbarMenu() {
     setUserMenuIsOpen(true);
     event.stopPropagation();
   };
-
+ 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (

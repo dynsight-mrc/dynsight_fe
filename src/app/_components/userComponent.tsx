@@ -4,6 +4,7 @@ import { TiArrowSortedDown } from 'react-icons/ti'
 import Avatar from "../../../public/avatar.svg";
 
 function UserComponent() {
+
   return (
 <div className="flex flex-row space-x-2 my-10 items-center">
           <Image src={Avatar} alt="avatar" className="w-10 h-10" />

@@ -10,6 +10,7 @@ import Image from "next/image";
 import Wave from "@/public/wave-top.svg";
 import { Nova_Flat } from "next/font/google";
 import Wave2 from "@/public/wave-top2.svg";
+import { useSession } from "next-auth/react";
 
 const novaFlat = Nova_Flat({
   weight: "400",
@@ -62,6 +63,8 @@ export default function Property({
 
     // Cleanup the socket connection when the component unmounts
     return () => {
+      console.log("disconnected");
+      
       socket.disconnect();
     };
   }, []);
@@ -69,7 +72,9 @@ export default function Property({
   const handleToggleMenu = () => {
     setMenuIsOpen(true);
   };
-
+  /* const {data:session} = useSession()
+  console.log(session); */
+  
   return (
     <div className="mr-1 mb-1 relative w-full overflow-hidden h-40  sm:h-72 sm:w-52  rounded-md   text-white shadow-lg font-semibold text-xl justify-between bg-yellow-300 ">
       <Image

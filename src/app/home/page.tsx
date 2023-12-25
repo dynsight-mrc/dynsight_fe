@@ -1,6 +1,6 @@
 import React from "react";
-import Property from "./_components/widgets/property";
 import Room from "./_components/room";
+import { getServerSession } from "next-auth";
 
 async function getRoomsData() {
   const res = await fetch("http://38.242.254.49:5000/api/rooms");
@@ -15,6 +15,8 @@ async function getRoomsData() {
 async function Home() {
   let roomsData = await getRoomsData();
 
+  
+  
   return (
     <div>
       home

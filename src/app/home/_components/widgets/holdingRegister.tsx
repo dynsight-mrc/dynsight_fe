@@ -26,7 +26,7 @@ export default function HoldingRegister({ room, holdingRegisterDetails }: any) {
 
   const getHoldingRegisterValue = useCallback(async () => {
     const res = await fetch(
-      `http://localhost:3001/home/api/devices/holdingregisters/${holdingRegisterDetails.id}`
+      `${process.env.NEXT_PUBLIC_HOST}/home/api/devices/holdingregisters/${holdingRegisterDetails.id}`
     );
     let data = await res.json();
 
@@ -35,7 +35,7 @@ export default function HoldingRegister({ room, holdingRegisterDetails }: any) {
 
   const changeHoldingRegisterValue = useCallback(async () => {
     const result = await fetch(
-      `http://localhost:3001/home/api/devices/holdingregisters/${holdingRegisterDetails.id}`,
+      `${process.env.NEXT_PUBLIC_HOST}/home/api/devices/holdingregisters/${holdingRegisterDetails.id}`,
       {
         method: "POST",
         headers: {
