@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import UserMenu from "./userMenu";
 import { TiArrowSortedDown } from "react-icons/ti";
-import { CustomSession } from "../../types/session.type";
+import { CustomSession } from "../../../types/session.type";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Avatar from "@/public/avatar.svg";

@@ -1,6 +1,6 @@
 "use client"
 import React from 'react'
-import SidebarMenuItem from '../../_components/menu/sidebarMenuItem';
+import SidebarMenuItem from '../../_components/menu/default-menu/sidebarMenuItem';
 
 import { IoHomeOutline } from "react-icons/io5";
 import { VscSettings } from "react-icons/vsc";

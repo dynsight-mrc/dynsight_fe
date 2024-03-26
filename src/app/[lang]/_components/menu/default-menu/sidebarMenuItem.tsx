@@ -1,5 +1,5 @@
 "use client"
-import { sidbarMenuStateAtom } from "@/src/atoms/sidbar-menu-state-atom";
+import { sidebarMenuStateAtom } from "@/src/atoms/sidbar-menu-state-atom";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import React from "react";
 import { IconType } from "react-icons";
@@ -15,12 +15,12 @@ function SidebarMenuItem({ name, href, Icon }: SidebarMenuItem) {
   const pathname = usePathname();
   const router = useRouter();
   
-  const [sidbarMenuState, setSidbarMenuState] =
-    useRecoilState(sidbarMenuStateAtom);
+  const [sidebarMenuState, setSidebarMenuState] =
+    useRecoilState(sidebarMenuStateAtom);
 
   const navigateToPage = () => {
     router.push(href);
-    setSidbarMenuState(false);
+    setSidebarMenuState(false);
   };
   return (
     <div

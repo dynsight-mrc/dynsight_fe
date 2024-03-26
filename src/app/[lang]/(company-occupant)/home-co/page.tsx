@@ -38,6 +38,9 @@ async function Home() {
           {roomsData.map((room: any) => (
             <Room key={room.id} roomName={room.name} devices={room.devices} />
           ))}
+          {roomsData.map((room: any) => (
+            <Room key={room.id} roomName={room.name} devices={room.devices} />
+          ))}
         </div>
         <div>else</div>
       </div>

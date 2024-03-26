@@ -3,7 +3,7 @@ import React from 'react'
 
 import { RxActivityLog } from "react-icons/rx";
 import { IoHomeOutline } from 'react-icons/io5';
-import SidebarMenuItem from '../../_components/menu/sidebarMenuItem';
+import SidebarMenuItem from '../../_components/menu/default-menu/sidebarMenuItem';
 
 function OrganizationOwnerSidebarMenuItems() {
   return (

@@ -1,8 +1,8 @@
 import { getServerSession } from "next-auth";
 //import Image from "next/image";
 import React from "react";
-import { authOptions } from "../../../api/auth/authOptions";
-import { CustomSession } from "../../types/session.type";
+import { authOptions } from "../../../../api/auth/authOptions";
+import { CustomSession } from "../../../types/session.type";
 import { RxAvatar } from "react-icons/rx";
 import { TiArrowSortedDown } from "react-icons/ti";
 
