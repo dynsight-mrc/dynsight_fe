@@ -5,7 +5,7 @@ enum Gender {
   FEMALE = "Female",
 }
 export enum UserRole {
-  ROOT = "root",
+  ADMIN = "admin",
   CO = "company-occupant",
   OO = "organization-owner",
 }

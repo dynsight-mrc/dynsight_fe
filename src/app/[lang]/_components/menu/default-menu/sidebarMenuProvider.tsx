@@ -2,15 +2,16 @@
 import React from "react";
 
 
-import RootSidebarMenuItems from "../../../(root)/_components/rootSidebarMenuItems";
+
 import { CustomSession } from "../../../types/session.type";
 import { useSession } from "next-auth/react";
-import OrganizationOwnerSidebarMenuItems from "../../../(organization-owner)/_components/organizationOwnerSidebarMenuItems";
-import CompanyOccupantSidebarMenuItems from "../../../(company-occupant)/_components/companyOccupantSidebarMenuItems";
+import OrganizationOwnerSidebarMenuItems from "../../../oo/_components/organizationOwnerSidebarMenuItems";
+import CompanyOccupantSidebarMenuItems from "../../../co/_components/companyOccupantSidebarMenuItems";
+import AdminSidebarMenuItems from "../../../admin/_components/adminSidebarMenuItems";
 
 
 const UsersMenus = {
-  'root': RootSidebarMenuItems,
+  'admin': AdminSidebarMenuItems,
   "company-occupant": CompanyOccupantSidebarMenuItems,
   'organization-owner': OrganizationOwnerSidebarMenuItems,
 };

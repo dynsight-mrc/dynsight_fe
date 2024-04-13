@@ -1,19 +1,77 @@
 "use client";
+import React, { useEffect, useState } from "react";
+import DynsightLogo from "@/public/dynsight-logo.png";
+import Image from "next/image";
+import Link from "next/link";
+import { redirect, useRouter } from "next/navigation";
+import { signIn, useSession } from "next-auth/react";
+import { BsEye, BsEyeSlash } from "react-icons/bs";
+import { TailSpin } from "react-loader-spinner";
+import { Locale } from "@/src/i18n-config";
+import { CustomSession } from "../../types/session.type";
+import { UsersHomes } from "../_types/usersHomes";
 
-import { signIn } from "next-auth/react";
-import {  useRouter } from "next/navigation";
-import React, { useState } from "react";
 
-function Signin() {
+function RightSideFormLogin() {
+  return (
+    <div className="relative w-full h-screen lg:w-[500px] bg-teltonikaGray-500 text-white">
+      <div className="m-auto w-4/5 pt-20 sm:w-1/2 lg:w-5/6 h-full  flex flex-col space-y-8">
+        <div className="lg:hidden flex flex-row justify-center items-center space-x-2 mb-10">
+          <Image
+            className="w-8 h-8 sm:w-10 sm:h-10"
+            src={DynsightLogo}
+            alt="soft-icon"
+          />
+
+          <div className="flex flex-row items-center space-x-2">
+            <span className="tracking-widest font-opensans text-4xl text-white">
+              DYNISIGHT
+            </span>
+          </div>
+        </div>
+        <div className="w-full border-b border-gray-200 space-x-3 text-lg">
+          <span className="px-2 uppercase font-oswald border-b-4 border-white tracking-widest">
+            Login
+          </span>
+          {/* <span className="uppercase font-oswald">
+            Register
+          </span> */}
+        </div>
+        <div className="text-left">
+          <span className="text-3xl font-oswald tracking-wide ">
+            WELCOME TO DYNSIGHT!
+          </span>
+          <p className="font-thin mt-3">
+            Dynsight is designed to conveniently monitor and manage all of your
+            building devices
+          </p>
+        </div>
+        <UserCredentials />
+      </div>
+    </div>
+  );
+}
+function UserCredentials() {
+  const router = useRouter();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const router = useRouter();
-
+  const [passwordInputState, setPasswordInputState] = useState("password");
+  const [loading, setLoading] = useState(false);
+  const { data: session } = useSession();
+ 
+  useEffect(()=>{
+    console.log(session);
+    
+      if(session){
+        console.log(session);
+        let {permissions:{ role:profile}}  =(session as CustomSession).user
+        router.push(UsersHomes[profile])
+      }
+      
+  },[session])
   const submitRequest = async (event: Event) => {
     event.preventDefault();
-    console.log( username,
-      password);
-    
+    setLoading(true);
     try {
       let res = await signIn("Credentials", {
         redirect: false,
@@ -21,19 +79,14 @@ function Signin() {
         password,
       });
       console.log(res);
-      
-      if (res?.ok) {
+
+      /* if (res?.ok) {
         router.push("/");
       }
-      router.push("/");
+      router.push("/"); */
     } catch (error) {
       console.log(error);
     }
-
-    /* if (res?.ok) {
-      console.log(res);
-      
-    } */
   };
 
   const handleChangeUsername = (event: Event) => {
@@ -43,42 +96,97 @@ function Signin() {
   const handleChangePassword = (event: Event) => {
     setPassword((event.target as HTMLInputElement).value);
   };
-  
-  return (
-    <div className="w-full h-full flex flex-col items-center justify-center">
-      <form
-        action=""
-        onSubmit={(event: any) => submitRequest(event)}
-        className="flex flex-col items-center"
-      >
-        <div className="m-3">
-          <label htmlFor="username" />
-          <input
-            onChange={(event: any) => handleChangeUsername(event)}
-            id="username"
-            type="text"
-            className="p-3 text-gray-500"
-          />
-        </div>
-        <div className="m-3">
-          <label htmlFor="password" />
-          <input
-            onChange={(event: any) => handleChangePassword(event)}
-            type="password"
-            id="password"
-            className="p-3 text-gray-500"
-          />
-        </div>
+  const handleChangePasswordVisibility = () => {
+    setPasswordInputState((pre) => {
+      if (pre === "text") return "password" as string;
+      return "text";
+    });
+  };
 
+  return (
+    <form
+      action=""
+      onSubmit={(event: any) => submitRequest(event)}
+      className="flex flex-col items-center space-y-5"
+    >
+      <div className="w-full relative group">
+        <label
+          htmlFor="username"
+          className="absolute group-focus:text-white text-gray-400 font-thin px-2 -top-3 left-2 bg-teltonikaGray-500"
+        >
+          Username
+        </label>
+        <input
+          onChange={(event: any) => handleChangeUsername(event)}
+          id="username"
+          type="text"
+          className="p-2 w-full outline-non text-gray-400  focus:border-white rounded-md bg-transparent border border-gray-600 ring-gray-100 font-thin"
+        />
+      </div>
+
+      <div className="w-full relative group">
+        <label
+          htmlFor="username"
+          className="absolute group-focus:text-white text-gray-400 font-thin px-2 -top-3 left-2 bg-teltonikaGray-500"
+        >
+          Password
+        </label>
+        <input
+          onChange={(event: any) => handleChangePassword(event)}
+          id="password"
+          type={passwordInputState}
+          className="p-2 pl-8 w-full outline-non text-gray-400  focus:border-white rounded-md bg-transparent border border-gray-600 ring-gray-100 font-thin"
+        />
+        <BsEye
+          className={`${
+            passwordInputState === "text" && "hidden text-red-500"
+          }  absolute left-0 top-3.5 ml-2 text-gray-500 w-4 h-4 cursor-pointer hover:text-white`}
+          onClick={handleChangePasswordVisibility}
+        />
+        <BsEyeSlash
+          className={`${
+            passwordInputState == "password" && "hidden"
+          } absolute left-0 top-3.5 ml-2 text-gray-500 w-4 h-4 cursor-pointer hover:text-white`}
+          onClick={handleChangePasswordVisibility}
+        />
+      </div>
+      <div className="justify-start w-full underline">
+        <Link
+          className="hover:text-gray-200 text-sm font-opensans tracking-tight"
+          href={"forgot-password"}
+        >
+          Mot de passe oublie?
+        </Link>
+      </div>
+      <div className="flex flex-row justify-end w-full ">
         <button
           type="submit"
-          className="bg-white border border-gray-200 p-3 py-2 rounded-md hover:bg-blue-200"
+          className={`group ${loading ? "border-gray-500 cursor-default hover:bg-none":"border-white hover:bg-white"} border flex space-x-2    rounded-md uppercase font-oswald px-4 py-1.5`}
         >
-          login
+          <span className={`${loading?"text-gray-500":"text-white group-hover:text-teltonikaGray-500"} uppercase`}>Login</span>
+          {loading && <TailSpin
+            visible={true}
+            height="20"
+            width="20"
+            color="#6b7280"
+            ariaLabel="tail-spin-loading"
+            radius="1"
+            wrapperStyle={{}}
+            wrapperClass=""
+          />}
         </button>
-      </form>
-    </div>
+      </div>
+    </form>
+  );
+}
+function page({params:{lang}}:{params:{lang:Locale}}) {
+  console.log(lang);
+  
+  return (
+    <>
+      <RightSideFormLogin />
+    </>
   );
 }
 
-export default Signin;
+export default page;

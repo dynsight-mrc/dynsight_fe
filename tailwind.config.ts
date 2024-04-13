@@ -22,6 +22,9 @@ const config: Config = {
           800: "#0054A6",
           900: "#0d459b",
         },
+        teltonikaGray:{
+          500:"#202124"
+        }
       },
       width:{
         85:"340px"

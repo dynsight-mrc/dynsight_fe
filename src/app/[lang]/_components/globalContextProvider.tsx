@@ -4,7 +4,7 @@ import React from "react";
 import { SessionProvider } from "next-auth/react";
 import { RecoilRoot } from "recoil";
 
-function GlobalContextProvider({ children }: any) {
+export default function GlobalContextProvider({ children }: any) {
   return (
     <SessionProvider>
       <RecoilRoot>{children}</RecoilRoot>
@@ -12,4 +12,4 @@ function GlobalContextProvider({ children }: any) {
   );
 }
 
-export default GlobalContextProvider;
+

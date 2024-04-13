@@ -34,7 +34,7 @@ function Navbar() {
           />
 
           <span className="tracking-widest text-2xl text-gray-500">
-            DYNISIGHT
+            DYNSIGHT
           </span>
         </div>
       </div>

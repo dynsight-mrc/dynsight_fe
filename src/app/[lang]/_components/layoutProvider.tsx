@@ -15,29 +15,24 @@ function LayoutProvider({
   children: React.ReactNode;
   lang: string;
 }) {
-  let path = usePathname();
   const [sidebarMenuState, setMenuState] = useRecoilState(sidebarMenuStateAtom);
 
   return (
-    <>
-      {path === (`/${lang}/signin` || "_error") ? (
-        <>{children}</>
-      ) : (
-        <div className="relative">
-          {/* <SidebarMenu /> */}
-          <SidebarMenuTeltonica />
+    
+      <div className="relative">
+        {/* <SidebarMenu /> */}
+        <SidebarMenuTeltonica />
 
-          <div
-            className={` bg-gray-100 inset-0 flex flex-col w-full h-screen ${
-              sidebarMenuState ? "pl-6 lg:pl-72" : "pl-6 lg:pl-16"
-            } `}
-          >
-            <NavbarTeltonika />
-            <div className="w-full h-full overflow-y-scroll pt-5">{children}</div>
-          </div>
+        <div
+          className={` bg-gray-100 inset-0 flex flex-col w-full h-screen ${
+            sidebarMenuState ? "pl-6 lg:pl-80" : "pl-6 lg:pl-20"
+          } `}
+        >
+          <NavbarTeltonika />
+          <div className="w-full h-full overflow-y-scroll pt-5">{children}</div>
         </div>
-      )}
-    </>
+      </div>
+    
   );
 }
 
