@@ -15,7 +15,6 @@ export const withAuthentication: MiddlewareFactory = (
   middleware: NextMiddleware
 ) => {
   return async (request: NextRequest, event: NextFetchEvent) => {
-    console.log("with authentication");
     
     if (urlSplitter(request)[1] === "not-found") {
       
@@ -24,7 +23,9 @@ export const withAuthentication: MiddlewareFactory = (
     }
 
     //let cookie = request.cookies.get("next-auth.session-token");
-    let cookie = request.cookies.get(process.env.COOKIE_NAME!);
+    //let cookie = request.cookies.get(process.env.COOKIE_NAME!);
+    let cookie = request.cookies.get("__Secure-next-auth.session-token");
+
     if (!cookie) {
       
       let [lang,page,authSegment] =  urlSplitter(request)
