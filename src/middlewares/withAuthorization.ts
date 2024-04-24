@@ -16,7 +16,8 @@ export const withAuthorization: MiddlewareFactory = (
   return async (request: NextRequest, event: NextFetchEvent) => {
     console.log("with authorization");
 
-    let cookie = request.cookies.get("next-auth.session-token");
+    //let cookie = request.cookies.get("next-auth.session-token");
+    let cookie = request.cookies.get(process.env.COOKIE_NAME!);
 
     if (cookie) {
       let [lang, authSegment, page] = urlSplitter(request);

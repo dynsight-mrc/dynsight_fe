@@ -23,8 +23,8 @@ export const withAuthentication: MiddlewareFactory = (
       return NextResponse.next();
     }
 
-    let cookie = request.cookies.get("next-auth.session-token");
-
+    //let cookie = request.cookies.get("next-auth.session-token");
+    let cookie = request.cookies.get(process.env.COOKIE_NAME!);
     if (!cookie) {
       
       let [lang,page,authSegment] =  urlSplitter(request)
