@@ -22,8 +22,8 @@ export default function Error({
   
   return (
     <div className="h-full text-gray-500 justify-center flex flex-col space-y-4 items-center my-auto ">
-      <h1>Acces Refuse</h1>
-      <p>Desole, vous n avez pas la permission d acceder a cette page</p>
+      <h1>Accés Refusé</h1>
+      <p>Desole, vous n'avez pas la permission d'accéder a cette page</p>
       <Image className="h-8 w-8" src={Lock} alt="Accès Interdit" />
 
       <button
