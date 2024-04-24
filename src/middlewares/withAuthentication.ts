@@ -14,8 +14,8 @@ export const withAuthentication: MiddlewareFactory = (
   middleware: NextMiddleware
 ) => {
   return async (request: NextRequest, event: NextFetchEvent) => {
-    console.log("with authentication !!!!");
-    console.log(request);
+    
+    console.log('with authentication');
     
 
     if (urlSplitter(request)[1] === "not-found") {
@@ -23,13 +23,13 @@ export const withAuthentication: MiddlewareFactory = (
     }
 
     //let cookie = request.cookies.get("next-auth.session-token");
-    //let cookie = request.cookies.get(process.env.COOKIE_NAME!);
-    let cookie = request.cookies.get("__Secure-next-auth.session-token");
+    let cookie = request.cookies.get(process.env.COOKIE_NAME!);
     console.log(cookie);
     
-    if (!cookie) {
-      console.log("noooo cookie :(");
-      
+    //let cookie = request.cookies.get("__Secure-next-auth.session-token");
+    
+    
+    if (!cookie) {      
       let [lang, page, authSegment] = urlSplitter(request);
 
       if (authenticationPages.includes(page)) return NextResponse.next();
