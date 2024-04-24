@@ -8,27 +8,27 @@ import { MiddlewareFactory } from "./types";
 import { usersAuthorizedSegment } from "./types/usersAuthorizedSegment";
 import { getUserProfile, urlSplitter } from "./service";
 
-
 const authenticationPages = ["signin", "forgot-password"];
 
 export const withAuthentication: MiddlewareFactory = (
   middleware: NextMiddleware
 ) => {
   return async (request: NextRequest, event: NextFetchEvent) => {
-    
+    console.log("with authentication");
+
     if (urlSplitter(request)[1] === "not-found") {
-      
-      
       return NextResponse.next();
-    } 
+    }
 
     //let cookie = request.cookies.get("next-auth.session-token");
     //let cookie = request.cookies.get(process.env.COOKIE_NAME!);
     let cookie = request.cookies.get("__Secure-next-auth.session-token");
-
+    console.log(cookie);
+    
     if (!cookie) {
+      console.log("noooo cookie :(");
       
-      let [lang,page,authSegment] =  urlSplitter(request)
+      let [lang, page, authSegment] = urlSplitter(request);
 
       if (authenticationPages.includes(page)) return NextResponse.next();
       /*  if (authenticationPages.includes(page))
@@ -38,9 +38,16 @@ export const withAuthentication: MiddlewareFactory = (
       }
       return NextResponse.redirect(new URL(`/${lang}/signin`, request.url));
     }
-    let [lang,authSegment,page] = urlSplitter(request)
-        
-    let profile = await getUserProfile(cookie, (process.env.NEXTAUTH_SECRET as string));
+    console.log("there is cookie :)");
+    
+    let [lang, authSegment, page] = urlSplitter(request);
+
+    let profile = await getUserProfile(
+      cookie,
+      process.env.NEXTAUTH_SECRET as string
+    );
+    console.log(profile);
+    
     let userAuthSegment: string = usersAuthorizedSegment[profile];
 
     if (authenticationPages.includes(page)) {
