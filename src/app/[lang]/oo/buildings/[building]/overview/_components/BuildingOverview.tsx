@@ -1,5 +1,3 @@
-import FloorTableRow from "@/src/app/[lang]/_components/table/FloorTableRow";
-import Table from "@/src/app/[lang]/_components/table/Table";
 import React from "react";
 import { GoBell } from "react-icons/go";
 import { MdDeviceHub, MdOutlineSensors } from "react-icons/md";

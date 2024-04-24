@@ -1,7 +1,7 @@
 import { BsDoorOpen } from "react-icons/bs";
 
 import { BsChevronDown } from "react-icons/bs";
-import { PiStackSimpleLight } from "react-icons/pi";
+
 
 export default function SpaceListItem({
   name,

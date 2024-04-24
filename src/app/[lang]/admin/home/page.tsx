@@ -8,8 +8,7 @@ import sky from "@/public/skyscapper.png";
 import sky2 from "@/public/skyscapper2.jpg";
 import sky3 from "@/public/skyscapper3.jpeg";
 import Table from "@/src/app/[lang]/_components/table/Table";
-import Image from "next/image";
-import Map from "@/public/map2.jpg";
+
 import Link from "next/link";
 import BuildingTableRow from "../../_components/table/BuildingTableRow";
 import CustomGoogleMap from "../../_components/CustomGoogleMap";

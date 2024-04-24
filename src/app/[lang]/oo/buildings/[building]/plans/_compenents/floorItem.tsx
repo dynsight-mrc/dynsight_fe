@@ -1,6 +1,5 @@
 "use client"
 import { PiStackSimpleLight } from "react-icons/pi";
-import { useState } from "react";
 
 export default function FloorItem({
   name,

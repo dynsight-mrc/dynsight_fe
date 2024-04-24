@@ -1,6 +1,4 @@
 import { BlocType } from "@/src/app/[lang]/types/sidebar.type";
-import { LuLayoutDashboard } from "react-icons/lu";
-import { SlLocationPin } from "react-icons/sl";
 import { BsBell, BsBuilding } from "react-icons/bs";
 import { MdSensors } from "react-icons/md";
 import { HiOutlineSquare3Stack3D } from "react-icons/hi2";

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef, useEffect, Suspense } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { io } from "socket.io-client";
 
 import { BsThreeDots } from "react-icons/bs";

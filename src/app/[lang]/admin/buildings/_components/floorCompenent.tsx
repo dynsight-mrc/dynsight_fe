@@ -1,4 +1,3 @@
-import Image, { StaticImageData } from "next/image";
 import { BsChevronDown, BsChevronUp } from "react-icons/bs";
 import { PiStackSimpleLight } from "react-icons/pi";
 

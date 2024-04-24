@@ -1,13 +1,6 @@
-import { LuLayoutDashboard } from "react-icons/lu";
 import { SlLocationPin } from "react-icons/sl";
-import { BsBuilding } from "react-icons/bs";
-import { MdSensors } from "react-icons/md";
-import { HiOutlineSquare3Stack3D } from "react-icons/hi2";
-import { MdOutlineEnergySavingsLeaf } from "react-icons/md";
-import { BsTools } from "react-icons/bs";
-import { HiOutlineUsers } from "react-icons/hi";
 import { BlocType } from "@/src/app/[lang]/types/sidebar.type";
-import { BiLeftArrow, BiLeftArrowCircle } from "react-icons/bi";
+import { BiLeftArrowCircle } from "react-icons/bi";
 
 export const SiteSidebarMenuItems: BlocType[] = [
   {
@@ -45,7 +38,6 @@ export const SiteSidebarMenuItems: BlocType[] = [
         singleLink: "buildings-list",
         link: "/admin/sites",
       },
-     
 
       {
         name: "Add building",

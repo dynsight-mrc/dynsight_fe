@@ -3,7 +3,6 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { BsThreeDots } from "react-icons/bs";
 
-import { IoBulbOutline } from "react-icons/io5";
 import { MdRefresh } from "react-icons/md";
 
 import Link from "next/link";

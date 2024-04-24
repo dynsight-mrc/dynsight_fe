@@ -1,12 +1,9 @@
 import React from "react";
-import { CustomSession, UserRole } from "../../types/session.type";
+import { CustomSession } from "../../types/session.type";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../../api/auth/authOptions";
-import { redirect } from "next/navigation";
-import { getDictionary } from "@/src/lib/dictionary";
 import TeltonikaWidget from "./_components/widgets/teltonikaWidget";
 import { MdSignalWifiStatusbar1Bar } from "react-icons/md";
-import { Locale } from "@/src/i18n-config";
 function PropertyDetail({ name, value }: { name: string; value: string }) {
   return (
     <div className="flex flex-col py-2 border-b border-gray-200 space-y-1">

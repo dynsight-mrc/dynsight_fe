@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Open_Sans, Oswald, Roboto } from "next/font/google";
+import { Open_Sans, Oswald } from "next/font/google";
 
 import GlobalContextProvider from "./_components/globalContextProvider";
 import { Locale } from "@/src/i18n-config";

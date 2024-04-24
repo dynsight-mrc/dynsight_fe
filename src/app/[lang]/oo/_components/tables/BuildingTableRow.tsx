@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import Vayyar from "@/public/skyscapper5.jpg";
 import Image from "next/image";
 import Link from "next/link";
 function generateRandomNumber() {

@@ -1,11 +1,9 @@
 "use client";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { BsThreeDots } from "react-icons/bs";
-import DoorLock from "@/public/door-lock.svg";
 import Link from "next/link";
 import Image from "next/image";
 import { MdRefresh } from "react-icons/md";
-import axios from "axios";
 import { Nova_Flat } from "next/font/google";
 
 import Wave from "@/public/wave-top-blue.svg";

@@ -1,6 +1,4 @@
 'use client'
-import { BsChevronDown } from "react-icons/bs";
-import { PiStackSimpleLight } from "react-icons/pi";
 import FloorComponent from "./floorCompenent";
 import { useState } from "react";
 import SpaceListItem from "./spaceListItem";

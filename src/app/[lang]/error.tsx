@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import Lock from "@/public/lock.svg";
 import Image from "next/image";
-import { usePathname, useRouter } from "next/navigation";
+import {  useRouter } from "next/navigation";
 
 export default function Error({
   error,

@@ -11,7 +11,6 @@ import sky from "@/public/skyscapper.png";
 import sky2 from "@/public/skyscapper2.jpg";
 import sky3 from "@/public/skyscapper3.jpeg";
 import BuildingTableRow from "../_components/tables/BuildingTableRow";
-import MySecondMap from "./_compoenents/MySecondMap";
 import CustomGoogleMap from "../../_components/CustomGoogleMap";
 let buildings = [
   {

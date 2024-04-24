@@ -1,23 +1,12 @@
 import Image, { StaticImageData } from "next/image";
 import React from "react";
 import sky4 from "@/public/skyscapper4.jpeg";
-import sky from "@/public/skyscapper.png";
-import sky2 from "@/public/skyscapper2.jpg";
-import sky3 from "@/public/skyscapper3.jpeg";
-import { PiStackSimpleLight } from "react-icons/pi";
 import { MdLocationPin } from "react-icons/md";
-import { TiWeatherPartlySunny } from "react-icons/ti";
-import { SlEnergy } from "react-icons/sl";
-import { MdOutlineSensors } from "react-icons/md";
-import { GoBell } from "react-icons/go";
-import { MdDeviceHub } from "react-icons/md";
-import { BsChevronBarDown, BsChevronDown } from "react-icons/bs";
+
 import { VscArrowLeft } from "react-icons/vsc";
 import Link from "next/link";
-import BuildingListItem from "../../_components/buildingListItem";
 import FloorListItem from "../../_components/floorListItem";
-import Table from "@/src/app/[lang]/_components/table/Table";
-import FloorTableRow from "@/src/app/[lang]/_components/table/FloorTableRow";
+
 import BuildingSubsections from "./_components/BuildingSubsections";
 
 let spaces = [

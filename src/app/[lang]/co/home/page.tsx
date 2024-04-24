@@ -1,13 +1,9 @@
 import React from "react";
-import Room from "./_components/room";
-import { CustomSession, UserRole } from "../../types/session.type";
+import { CustomSession } from "../../types/session.type";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../../api/auth/authOptions";
-import { redirect } from "next/navigation";
-import { getDictionary } from "@/src/lib/dictionary";
 import TeltonikaWidget from "./_components/widgets/teltonikaWidget";
 import { MdSignalWifiStatusbar1Bar } from "react-icons/md";
-import { Locale } from "@/src/i18n-config";
 import { TiWeatherPartlySunny } from "react-icons/ti";
 import { SlEnergy } from "react-icons/sl";
 import { faker } from "@faker-js/faker";
