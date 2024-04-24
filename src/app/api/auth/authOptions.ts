@@ -36,9 +36,7 @@ export const authOptions: NextAuthOptions = {
       },
       //@ts-ignore
       /* async redirect({ url, baseUrl }) {
-        console.log("redirect");
-        console.log(url);
-        console.log(baseUrl);
+      
         
         
         

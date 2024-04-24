@@ -10,6 +10,7 @@ import { TailSpin } from "react-loader-spinner";
 import { Locale } from "@/src/i18n-config";
 import { CustomSession } from "../../types/session.type";
 import { UsersHomes } from "../_types/usersHomes";
+import { getDictionary } from "@/src/lib/dictionary";
 
 
 function RightSideFormLogin() {
@@ -60,15 +61,13 @@ function UserCredentials() {
   const { data: session } = useSession();
  
   useEffect(()=>{
-    console.log(session);
     
       if(session){
-        console.log(session);
         let {permissions:{ role:profile}}  =(session as CustomSession).user
         router.push(UsersHomes[profile])
       }
       
-  },[session])
+  },[session,router])
   const submitRequest = async (event: Event) => {
     event.preventDefault();
     setLoading(true);
@@ -78,7 +77,6 @@ function UserCredentials() {
         username,
         password,
       });
-      console.log(res);
 
       /* if (res?.ok) {
         router.push("/");
@@ -179,9 +177,8 @@ function UserCredentials() {
     </form>
   );
 }
-function page({params:{lang}}:{params:{lang:Locale}}) {
-  console.log(lang);
-  
+async function page({params:{lang}}:{params:{lang:Locale}}) {
+   
   return (
     <>
       <RightSideFormLogin />

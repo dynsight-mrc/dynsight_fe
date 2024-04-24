@@ -106,7 +106,6 @@ function NavbarUserNavigationMenu() {
     };
   }, []);
   const handleSignout = () => {
-    console.log("handle sigout");
 
     signOut({ callbackUrl: `${process.env.NEXT_PUBLIC_HOST}/signin` });
   };
@@ -208,8 +207,8 @@ function NavbarTeltonika() {
   };
 
   return (
-    <div className="relative h-16 w-full pl-5 ">
-      <div className="mr-4 h-full flex justify-between  flex-row  items-center border-b  border-gray-200 ">
+    <div className={`${sidebarMenuState?"pl-72 left-0":"pl-16 left-8 "} fixed z-20 h-16 w-full pl-5`}>
+      <div className={`  pl-3 mr-4 h-full flex justify-between  flex-row  items-center border-b  border-gray-200 `}>
         <NavbarLogo />
         <div className="flex flex-row items-center space-x-5">
           <Notifications />

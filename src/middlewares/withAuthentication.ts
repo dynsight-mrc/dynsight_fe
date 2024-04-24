@@ -16,7 +16,6 @@ export const withAuthentication: MiddlewareFactory = (
 ) => {
   return async (request: NextRequest, event: NextFetchEvent) => {
     console.log("with authentication");
-    console.log(urlSplitter(request)[2]);
     
     if (urlSplitter(request)[1] === "not-found") {
       

@@ -40,3 +40,13 @@ select:-webkit-autofill:focus {
 ::-webkit-scrollbar-thumb:hover {
   background: #0054A6;
 }
+
+a[href^="http://maps.google.com/maps"]{display:none !important}
+a[href^="https://maps.google.com/maps"]{display:none !important}
+
+.gmnoprint a, .gmnoprint span, .gm-style-cc {
+    display:none;
+}
+.gmnoprint div {
+    background:none !important;
+}

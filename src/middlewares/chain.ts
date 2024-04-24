@@ -11,5 +11,7 @@ export function stackMiddlewares(
     const next = stackMiddlewares(functions, index + 1);
     return current(next);
   }
+  console.log("last middleware");
+  
   return () => NextResponse.next();
 }

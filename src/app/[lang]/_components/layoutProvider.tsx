@@ -21,7 +21,7 @@ function LayoutProvider({
     
       <div className="relative">
         {/* <SidebarMenu /> */}
-        <SidebarMenuTeltonica />
+        {/* <SidebarMenuTeltonica /> */}
 
         <div
           className={` bg-gray-100 inset-0 flex flex-col w-full h-screen ${

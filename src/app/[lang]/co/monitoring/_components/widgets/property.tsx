@@ -53,7 +53,6 @@ export default function Property({
 
     // Event listeners for the socket
     socket.on("connect", () => {
-      console.log("Connected to the server");
     });
 
     socket.on(socketId, (data: any): any => {

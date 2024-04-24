@@ -8,19 +8,8 @@ import Link from "next/link";
 import { useRecoilState } from "recoil";
 import { sidebarMenuStateAtom } from "@/src/atoms/sidbar-menu-state-atom";
 
-import { BlocItemType, BlocType, } from "./_types/bloc.type";
-
-
-function MenuBlocItem({ name, link }: BlocItemType) {
-  return (
-    <Link
-      href={link}
-      className="text-gray-500 font-normal font-opensans hover:text-gray-600 hover:translate-x-3 transition-all duration-400 ease-out text-base tracking-wide cursor-pointer "
-    >
-      {name}
-    </Link>
-  );
-}
+import { BlocItemType, BlocType } from "./_types/bloc.type";
+import MenuBlocItem from "./menuBlocItem";
 
 function MenuBloc({ Icon, title, items }: BlocType) {
   const [sidebarMenuState, setSidebarMenuState] =
@@ -52,13 +41,23 @@ function MenuBloc({ Icon, title, items }: BlocType) {
         </span>
         <div className="mt-2 flex flex-col">
           {items.map((item) => (
-            <MenuBlocItem key={item.name} name={item.name} link={item.link} />
+            <MenuBlocItem
+              key={item.name}
+              singleLink={item.singleLink}
+              groupLinkL2={item.groupLinkL2}
+              singleLinkL2={item.singleLinkL2}
+              groupLink={item.groupLink}
+              name={item.name}
+              link={item.link}
+            />
           ))}
         </div>
       </div>
       <div
         className={`bg-white w-60 left-12 absolute z-10 pl-5 py-3 ${
-          sidebarMenuState ? "hidden" : "hidden group-hover:inline-block shadow-md border border-gray-100"
+          sidebarMenuState
+            ? "hidden"
+            : "hidden group-hover:inline-block shadow-md border border-gray-100"
         } `}
       >
         <span className="text-lg  text-teltonika-800 font-normal tracking-wider font-oswald">
@@ -66,7 +65,15 @@ function MenuBloc({ Icon, title, items }: BlocType) {
         </span>
         <div className="mt-2 flex flex-col">
           {items.map((item) => (
-            <MenuBlocItem key={item.name} name={item.name} link={item.link} />
+            <MenuBlocItem
+              key={item.name}
+              singleLink={item.singleLink}
+              groupLink={item.groupLink}
+              singleLinkL2={item.singleLinkL2}
+              groupLinkL2={item.groupLinkL2}
+              name={item.name}
+              link={item.link}
+            />
           ))}
         </div>
       </div>
@@ -89,7 +96,13 @@ function MenuBlocSmScreen({ title, items }: BlocType) {
         </span>
         <div className="mt-2 flex flex-col">
           {items.map((item) => (
-            <MenuBlocItem key={item.name} name={item.name} link={item.link} />
+            <MenuBlocItem
+              key={item.name}
+              singleLink={item.singleLink}
+              groupLink={item.groupLink}
+              name={item.name}
+              link={item.link}
+            />
           ))}
         </div>
       </div>
@@ -128,14 +141,16 @@ function SidebarMenuTeltonica({ items }: { items: BlocType[] }) {
     <>
       <div
         className={`${
-          sidebarMenuState ? "sm:w-72 overflow-y-auto overflow-x-hidden" : "sm:w-12"
+          sidebarMenuState
+            ? "sm:w-72 overflow-y-auto overflow-x-hidden border-r border-r-200"
+            : "sm:w-12"
         } absolute h-screen min-h-screen font-opensans hidden lg:inline-block `}
       >
         <div className="w-full flex flex-col h-full ">
           <EmptyBloc menuState={sidebarMenuState} height="12" />
 
-          {items.map((ele) => (
-            <MenuBloc Icon={ele.Icon} title={ele.title} items={ele.items} />
+          {items.map((ele,index) => (
+            <MenuBloc key={index} Icon={ele.Icon} title={ele.title} items={ele.items} />
           ))}
 
           <div className="flex flex-row flex-grow ">
@@ -176,8 +191,9 @@ function SidebarMenuTeltonica({ items }: { items: BlocType[] }) {
         }`}
       >
         <div className="w-full flex flex-col h-full overflow-y-auto">
-          {items.map((ele) => (
+          {items.map((ele,index) => (
             <MenuBlocSmScreen
+            key={index}
               Icon={ele.Icon}
               title={ele.title}
               items={ele.items}

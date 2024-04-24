@@ -5,17 +5,7 @@ import { Open_Sans, Oswald, Roboto } from "next/font/google";
 import GlobalContextProvider from "./_components/globalContextProvider";
 import { Locale } from "@/src/i18n-config";
 import { ReactNode } from "react";
-import { getServerSession } from "next-auth";
-import { CustomSession } from "./types/session.type";
-import { authOptions } from "../api/auth/authOptions";
-import LayoutProvider from "./_components/layoutProvider";
-import NavbarTeltonika from "./_components/menu/teltonika-menu/navbarTeltonika";
 
-const roboto = Roboto({
-  weight: "400",
-  subsets: ["latin"],
-  display: "swap",
-});
 const oswald = Oswald({
   weight: ["200", "300", "400", "500", "600", "700"],
   subsets: ["latin"],
@@ -28,7 +18,7 @@ const openSans = Open_Sans({
   display: "swap",
   variable: "--font-open-sans",
 });
-const metadata: Metadata = {
+export const metadata: Metadata = {
   title: "Dynsight",
   description: "Connecting Buildings",
 };
@@ -36,7 +26,6 @@ const metadata: Metadata = {
 type RootLayoutParams = {
   children: ReactNode;
   params: { lang: Locale };
-  
 };
 export default async function RootLayout({
   children,
@@ -48,12 +37,11 @@ export default async function RootLayout({
       suppressHydrationWarning={true}
       className={`${oswald.variable} ${openSans.variable}`}
     >
+      <head>
+        <link rel="icon" href="/icon.png" type="image/png" sizes="any" />
+      </head>
       <body className="bg-[#F9FAFC] h-screen">
-        <GlobalContextProvider>
-
-          {children}
-        </GlobalContextProvider>
-   
+        <GlobalContextProvider>{children}</GlobalContextProvider>
       </body>
     </html>
   );

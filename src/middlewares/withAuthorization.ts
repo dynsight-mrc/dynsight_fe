@@ -19,17 +19,15 @@ export const withAuthorization: MiddlewareFactory = (
     let cookie = request.cookies.get("next-auth.session-token");
 
     if (cookie) {
-      let [lang,authSegment,page] = urlSplitter(request)
-      console.log([lang,authSegment,page]);
-      
+      let [lang, authSegment, page] = urlSplitter(request);
 
-      let profile = await getUserProfile(cookie, (process.env.NEXTAUTH_SECRET as string));
-     console.log(profile);
-     
-      if (usersAuthorizedSegment[profile]!==authSegment) {
-        console.log(usersAuthorizedSegment[profile],authSegment);
-        console.log((usersAuthorizedSegment[profile]!==authSegment));
-        
+      let profile = await getUserProfile(
+        cookie,
+        process.env.NEXTAUTH_SECRET as string
+      );
+
+      if (usersAuthorizedSegment[profile] !== authSegment) {
+
         const url = request.nextUrl.clone();
         url.pathname = "/not-found";
         return NextResponse.redirect(url);
@@ -50,7 +48,6 @@ export const withAuthorization: MiddlewareFactory = (
     let authSegments = urlSegments[3];
 
     if (page === "not-found") {
-      console.log(page);
       return NextResponse.next();
     }
     let profile: UserRoles;

@@ -1,4 +1,4 @@
-import { BlocType, BlocItemType } from "../_types/types";
+import { BlocType} from "@/src/app/[lang]/types/sidebar.type"
 import { LuLayoutDashboard } from "react-icons/lu";
 import { SlLocationPin } from "react-icons/sl";
 import { BsBuilding } from "react-icons/bs";
@@ -16,7 +16,7 @@ export const menu: BlocType[] = [
       Icon: LuLayoutDashboard,
       title: "Dashboards",
       items: [
-        { name: "Accueil", link: "/co/home" },
+        { name: "Accueil", link: "/co/home" ,singleLink:'',groupLink:"" },
        
       ],
     },
@@ -24,7 +24,7 @@ export const menu: BlocType[] = [
       Icon: BsDoorOpen,
       title: "Bureaux",
       items: [
-        { name: "Liste des bureaux", link: "" },
+        { name: "Liste des bureaux", link: "" ,singleLink:'',groupLink:""},
        
       ],
     },
@@ -33,7 +33,7 @@ export const menu: BlocType[] = [
       Icon: MdSensors,
       title: "Équipements",
       items: [
-        { name: "Listes des équipements", link: "/co/devices" },
+        { name: "Listes des équipements", link: "/co/devices",singleLink:'',groupLink:"" },
        
       ],
     },
@@ -41,7 +41,7 @@ export const menu: BlocType[] = [
         Icon: RxActivityLog,
         title: "Activités",
         items: [
-          { name: "Mes activités", link: "/co/monitoring" },
+          { name: "Mes activités", link: "/co/monitoring",singleLink:'',groupLink:"" },
         
         ],
       },
@@ -49,7 +49,7 @@ export const menu: BlocType[] = [
         Icon: GrSchedules,
         title: "Planification",
         items: [
-          { name: "Température de consigne", link: "" },
+          { name: "Température de consigne", link: "",singleLink:'',groupLink:"" },
         
         ],
       },
@@ -58,7 +58,7 @@ export const menu: BlocType[] = [
           Icon:SlEnergy ,
           title: "Consomsation & Énergie",
           items: [
-            { name: "Température de consigne", link: "" },
+            { name: "Température de consigne", link: "" ,singleLink:'',groupLink:""},
            
           
           ],
@@ -67,7 +67,7 @@ export const menu: BlocType[] = [
         Icon: VscSettings,
         title: "Configuration",
         items: [
-          { name: "Implémentations des équipements", link: "" },
+          { name: "Implémentations des équipements", link: "",singleLink:'',groupLink:"" },
        
         
         ],

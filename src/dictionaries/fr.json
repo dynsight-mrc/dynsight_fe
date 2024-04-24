@@ -1,4 +1,31 @@
 {
+    "authentication": {
+        "slogon": "Système de gestion de bâtiment",
+        "actionButton": "Savoir Plus",
+        "details": [
+          {
+            "item": "COMPATIBLE PRODUCT",
+            "details": "Teltonika Networks offers a wide array of networking products designed to make your connectivity reliable, secure and quick to deploy. Our products will help you build a solid IoT, M2M or enterprise networking infrastructure using our remote management capabilities."
+          },
+          {
+            "item": "CONNECT & API",
+            "details": "RMS Connect enables the access and control of non-Teltonika Networks devices via RDP/VNC, SSH, or HTTP(S) protocols without any additional software. The newly implemented RMS API provides a possibility to carry endless RMS features into your in-house IoT platform."
+          },
+          {
+            "item": "CONNECT & API",
+            "details": "We are inspired by the creativity of our partners and are excited to be a part of this revolution by manufacturing networking products that are secure, reliable and easy to use. Take a look at how Teltonika Networks can help your connectivity solutions across multiple industry sectors!"
+          }
+        ],
+        "loginForm": {
+          "title": "Se connecter",
+          "WelcomHeader":"Bienvenu à Dynsight!",
+          "productBriefing": "Dynsight est conçu pour surveiller et gérer facilement tous les appareils de votre bâtiment",
+          "username":"Nom d'utilisateur / Email",
+          "password":"Mot de passe",
+          "forgotPassword":"Mot de passe oublié?",
+          "submitButton":"Se connecter"
+        }
+      },
     "index":{
         "title":"Bienvenu"
     }

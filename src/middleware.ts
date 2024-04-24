@@ -6,5 +6,5 @@ import { withAuthentication } from "./middlewares/withAuthentication";
 export default stackMiddlewares([ withInternatianalization,withAuthentication,withAuthorization]);
 export const config = {
   //matcher: ["/home", "/configuration", "/signin"],
-  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)","//sw.js"],
+  matcher: ["/((?!api|_next/static|_next/image|favicon.ico|icon.png).*)","//sw.js"],
 };

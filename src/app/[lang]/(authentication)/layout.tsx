@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import Skyscapper from "@/public/skyscapper-wallpaper.jpg";
+//import Skyscapper from "@/public/login-wallpaper.jpg";
 import DynsightLogo from "@/public/dynsight-logo.png";
 import { motion } from "framer-motion";
 function LeftSectionHeader() {
@@ -20,10 +21,16 @@ function LeftSectionHeader() {
         </div>
       </div>
 
-      <div className=" w-1/2">
-        <span className="text-white hidden sm:inline-block font-oswald font-bold text-sm sm:text-2xl lg:text-7xl xl:text-8xl text-justify uppercase">
-          Building Management System
-        </span>
+      <div className=" w-2/3 flex flex-col">
+        <p className="text-white hidden  sm:inline-block font-oswald font-bold text-sm sm:text-2xl lg:text-7xl xl:text-8xl uppercase">
+          PRENEZ
+        </p>
+        <p className="text-white hidden  sm:inline-block font-oswald font-bold text-sm sm:text-2xl lg:text-7xl xl:text-8xl uppercase">
+          LE CONTRÔLE
+        </p>
+        <p className="text-white hidden  sm:inline-block font-oswald font-bold text-sm sm:text-2xl lg:text-7xl xl:text-8xl uppercase">
+          DE VOS BATIMENTS
+        </p>
       </div>
       <button className="hidden xl:inline-block border mt-5 border-white rounded-sm py-2 px-4 hover:opacity-70 transition-opacity duration-100 ease-out text-white uppercase font-oswald">
         Savoir plus
@@ -56,29 +63,17 @@ function LeftSideSection() {
       <div className="h-72 w-full  absolute bottom-0  bg-gradient-to-t from-[#181818] via-25% via-[#181818]  ">
         <div className="hidden absolute  bottom-8 xl:flex flex-row  justify-between flex-1 space-x-5 text-white  items-start divide-x-2">
           <ProductPresentationItem
-            title="Compatible Product"
-            text=" Teltonika Networks offers a wide array of networking products
-              designed to make your connectivity reliable, secure and quick to
-              deploy. Our products will help you build a solid IoT, M2M or
-              enterprise networking infrastructure using our remote management
-              capabilities."
+            title="Property 1"
+            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nec tempus felis. Fusce ac accumsan ligula. Mauris at porta est, a facilisis diam. Sed id venenatis elit, non posuere augue. Maecenas auctor ac turpis elementum tristique. Sed ullamcorper, sem sed imperdiet dignissim, lorem odio dignissim eros, vel finibus lectus lectus a nisl."
           />
 
           <ProductPresentationItem
-            title="Connect & Api"
-            text="RMS Connect enables the access and control of non-Teltonika
-              Networks devices via RDP/VNC, SSH, or HTTP(S) protocols without
-              any additional software. The newly implemented RMS API provides
-              a possibility to carry endless RMS features into your in-house
-              IoT platform."
+            title="Property 2"
+            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nec tempus felis. Fusce ac accumsan ligula. Mauris at porta est, a facilisis diam. Sed id venenatis elit, non posuere augue. Maecenas auctor ac turpis elementum tristique. Sed ullamcorper, sem sed imperdiet dignissim, lorem odio dignissim eros, vel finibus lectus lectus a nisl."
           />
           <ProductPresentationItem
-            title="Use cases"
-            text="We are inspired by the creativity of our partners and are
-              excited to be a part of this revolution by manufacturing
-              networking products that are secure, reliable and easy to use.
-              Take a look at how Teltonika Networks can help your connectivity
-              solutions across multiple industry sectors!"
+            title="Property 3"
+            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nec tempus felis. Fusce ac accumsan ligula. Mauris at porta est, a facilisis diam. Sed id venenatis elit, non posuere augue. Maecenas auctor ac turpis elementum tristique. Sed ullamcorper, sem sed imperdiet dignissim, lorem odio dignissim eros, vel finibus lectus lectus a nisl."
           />
         </div>
       </div>
@@ -98,9 +93,8 @@ async function Layout({ children }: { children: React.ReactNode }) {
       />
       <LeftSideSection />
       <div className="relative w-full h-screen lg:w-[500px] bg-teltonikaGray-500 text-white">
-      {children}
+        {children}
       </div>
-      
     </div>
   );
 }
