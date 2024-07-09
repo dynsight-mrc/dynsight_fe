@@ -144,7 +144,7 @@ function page() {
       <Table
         RowComponent={BuildingTableRow}
         rows={buildings}
-        header={["Name","Site", "Type", "Manager", "Floors", "Area"]}
+        header={["Intitulé","Organisation", "Type", "Manager", "Étages", "Superfice"]}
         keys={["name","site", "type",  "manager", "floors","area"]}
         filters={[
           { key: "all", title: "All buildings" },

@@ -76,13 +76,20 @@ function UserCredentials() {
         redirect: false,
         username,
         password,
-      });
-
-      /* if (res?.ok) {
+      });      
+      console.log("res",res);
+      
+      if (res?.ok) {
         router.push("/");
+        return
       }
-      router.push("/"); */
+      if(!res?.ok){
+        setLoading(false);
+        alert("Nous n'avons pas pu vous connecter. Veuillez vérifier vos identifiants et réessayer.")
+      }
     } catch (error) {
+      console.log("Nous n'avons pas pu vous connecter. Veuillez vérifier vos identifiants et réessayer.");
+      
       console.log(error);
     }
   };

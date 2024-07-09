@@ -14,14 +14,14 @@ import { BsDoorOpen } from "react-icons/bs";
 export const BuildingSidebarMenuItems: BlocType[] = [
   {
     Icon: BiLeftArrowCircle,
-    title: "Buildings Overview",
+    title: "Aperçu",
     items: [
       { name: "Accueil", groupLink: "", singleLink: "", link: "/admin/home" },
       {
-        name: "Liste des batiments",
+        name: "Liste des immeubles",
         groupLink: "",
         singleLink: "buildings-list",
-        link: "/admin/sites",
+        link: "/admin/organizations",
       },
     ],
   },
@@ -30,14 +30,14 @@ export const BuildingSidebarMenuItems: BlocType[] = [
     title: "Gestion du Batiment",
     items: [
       {
-        name: "Building overview",
+        name: "Aperçu du bâtiment",
         groupLink: "",
         singleLink: "overview",
         link: "/admin/buildings",
       },
 
       {
-        name: "Change building info",
+        name: "Modifier informations",
         groupLink: "",
         singleLink: "parameters",
         link: "/admin/buildings",
@@ -49,14 +49,14 @@ export const BuildingSidebarMenuItems: BlocType[] = [
     title: "Gestion des etages",
     items: [
       {
-        name: "Floors list",
+        name: "Liste des étages",
         groupLink: "",
         singleLink: "floors-list",
         link: "/admin/buildings",
       },
 
       {
-        name: "Add floor",
+        name: "Ajouter un étage",
         groupLink: "",
         singleLink: "add-floor",
         link: "/admin/buildings",
@@ -68,14 +68,14 @@ export const BuildingSidebarMenuItems: BlocType[] = [
     title: "Gestion des espaces",
     items: [
       {
-        name: "Spaces list",
+        name: "Liste des espaces",
         groupLink: "",
         singleLink: "spaces-list",
         link: "/admin/buildings",
       },
 
       {
-        name: "Add space",
+        name: "Ajouter un espace",
         groupLink: "",
         singleLink: "add-space",
         link: "/admin/buildings",
@@ -89,14 +89,14 @@ export const BuildingSidebarMenuItems: BlocType[] = [
     title: "Gestion des équipements",
     items: [
       {
-        name: "Devices list",
+        name: "liste des équipements",
         groupLink: "",
-        singleLink: "spaces-list",
+        singleLink: "devices-list",
         link: "/admin/buildings",
       },
 
       {
-        name: "Connect device",
+        name: "Connecter nouvel equip.",
         groupLink: "",
         singleLink: "connect-device",
         link: "/admin/buildings",

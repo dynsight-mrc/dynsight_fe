@@ -24,7 +24,6 @@ export const withAuthentication: MiddlewareFactory = (
 
     //let cookie = request.cookies.get("next-auth.session-token");
     let cookie = request.cookies.get(process.env.COOKIE_NAME!);
-    console.log(cookie);
     
     //let cookie = request.cookies.get("__Secure-next-auth.session-token");
     
@@ -40,7 +39,6 @@ export const withAuthentication: MiddlewareFactory = (
       }
       return NextResponse.redirect(new URL(`/${lang}/signin`, request.url));
     }
-    console.log("there is cookie :)");
     
     let [lang, authSegment, page] = urlSplitter(request);
 
@@ -48,7 +46,6 @@ export const withAuthentication: MiddlewareFactory = (
       cookie,
       process.env.NEXTAUTH_SECRET as string
     );
-    console.log(profile);
     
     let userAuthSegment: string = usersAuthorizedSegment[profile];
 

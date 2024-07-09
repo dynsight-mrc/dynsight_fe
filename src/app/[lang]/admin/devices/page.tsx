@@ -1,6 +1,6 @@
 import React from "react";
 import Table from "../../_components/table/Table";
-import DeviceTableRow from "../../_components/table/DeviceTableRow";
+import DeviceTableRow from "./_components/tables/DeviceTableRow";
 
 function page() {
   return (
@@ -49,7 +49,7 @@ function page() {
             status: "active",
           },
         ]}
-        header={["Name", "Category","Protocol", "Building", "Floor", "Room", "Status"]}
+        header={["Nom", "Catégorie","Protocole", "Immeuble", "Étage", "Bloc", "Statut"]}
         keys={["name", "category", "protocol","building", "floor", "room", "status"]}
         filters={[
           { key: "all", title: "All Devices" },

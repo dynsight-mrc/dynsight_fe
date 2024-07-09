@@ -11,10 +11,8 @@ function generateRandomNumber() {
 }
 function DeviceTableRow({ row, keys }:{row:Record<string,string>,keys:string[]}) {
   const params = useParams()
-  console.log("params from deviceTableRow",params.building);
   
   const path = usePathname()
-  console.log("here table row",path);
   
   return (
     <Link href={`/oo/buildings/${params.building}}/devices/${generateRandomNumber()}/overview`} className="cursor-pointer bg-white flex flex-row items-center py-3 border-b border-gray-100 hover:bg-gray-100">

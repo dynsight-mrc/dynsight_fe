@@ -14,7 +14,7 @@ function BuildingTableRow({ row, keys }:{row:Record<string,string>,keys:string[]
         {keys.map((key, index) => {
           if (index === 0)
             return (
-              <div  key={generateRandomNumber()} className={`flex flex-row w-1/${keys.length} mx-3 items-center space-x-3`}>
+              <div  key={generateRandomNumber()} className={`flex flex-row w-full w-1/${keys.length} mx-3 items-center space-x-3`}>
                 <div className="w-9 h-9 rounded-full overflow-hidden object-cover">
                   <Image
                     src={row.image}
@@ -31,7 +31,7 @@ function BuildingTableRow({ row, keys }:{row:Record<string,string>,keys:string[]
           return (
             <div
               key={generateRandomNumber()}
-              className={`mx-3 sm:text-base text-xs text-gray-600  w-1/${keys.length}`}
+              className={`mx-3 sm:text-base text-xs text-gray-600 w-full  w-1/${keys.length}`}
             >
               {row[key]}
             </div>

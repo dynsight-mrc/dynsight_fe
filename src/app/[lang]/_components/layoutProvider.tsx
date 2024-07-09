@@ -29,7 +29,7 @@ function LayoutProvider({
           } `}
         >
           <NavbarTeltonika />
-          <div className="w-full h-full overflow-y-scroll pt-5">{children}</div>
+          <div className="w-full h-full pt-5 ">{children}</div>
         </div>
       </div>
     

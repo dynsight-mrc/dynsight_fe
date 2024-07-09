@@ -22,13 +22,11 @@ const checkSignleOrGroupCurrentPage = (
   groupLinkL2: string | undefined
 ) => {
   let splitedPath = path.split("/");
-  console.log(splitedPath);
 
   let currentSingleLinkL2 = splitedPath[7];
   let currentGroupLinkL2 = splitedPath[6];
   let currentGroupLink = splitedPath[4];
   const currentSingleLink = splitedPath[5];
-  console.log(currentGroupLinkL2,"yaaaaaah");
   
   if (currentSingleLinkL2) {
     return currentSingleLinkL2 === singleLinkL2;
@@ -68,7 +66,6 @@ const generateLink = (
   if (groupLinkL2 !== undefined) {
     let segmentL1 = getIdFromLink(path);
     let segmentL2 = getIdFromLinkL2(path);
-    console.log(`${link}/${segmentL1}/${singleLink}/${groupLinkL2}`);
     return `${link}/${segmentL1}/${singleLink}/${groupLinkL2}`;
   }
 
@@ -94,8 +91,7 @@ export default function MenuBlocItem({
   groupLink,
 }: BlocItemType) {
   const path = usePathname();
-  console.log(path);
-  console.log(link, singleLink, singleLinkL2, groupLinkL2, groupLink);
+
 
   let customLink = generateLink(
     path,

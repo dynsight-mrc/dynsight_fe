@@ -8,7 +8,9 @@ import {
   useJsApiLoader,
 } from "@react-google-maps/api";
 import { TailSpin } from "react-loader-spinner";
-import { useRouter } from "next/navigation";
+import {  usePathname, useRouter, useSearchParams } from "next/navigation";
+import { getDictionary } from "@/src/lib/dictionary";
+import { Locale } from "@/src/i18n-config";
 const containerStyle = {
   width: "100%",
   height: "100%",
@@ -26,6 +28,7 @@ type Mark = {
   };
 };
 type BuildingGoogleMap = {
+  lang:Locale;
   id: string;
   center: Coordiantes;
   marks?: Coordiantes[];
@@ -43,11 +46,15 @@ const center = { lat: 36.9322023, lng: 8.624958 };
 //const center = {  lat: -33.86723456,   lng: 151.20623456 };;
 const defaultMarkerSize = [50, 50];
 export default function CustomGoogleMap({
+  lang,
   center,
   marks,
   polygon,
   options,
 }: BuildingGoogleMap) {
+  
+  
+  
   const router = useRouter();
   const { isLoaded, loadError } = useJsApiLoader({
     id: (process.env.NEXT_PUBLIC_GOOGLE_MAP_PROJECT_ID as string)!,
@@ -62,7 +69,7 @@ export default function CustomGoogleMap({
     return (
       <div className="w-full h-full flex-col flex justify-center items-center">
         <div>
-          <span className="text-gray-500">Loading Map ...</span>
+          <span className="text-gray-500">Loading map ...</span>
         </div>{" "}
         <TailSpin
           visible={true}

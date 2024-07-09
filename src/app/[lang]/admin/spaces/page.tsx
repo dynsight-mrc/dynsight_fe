@@ -40,12 +40,7 @@ function page() {
         RowComponent={SpaceTableRow}
         rows={spaces}
         header={[
-          "Name",
-          "Site",
-          "Building",
-          "Floor",
-          "area",
-          "Connected Devices",
+          "Intitulé", "Organisation", "Immeuble", "Étage", "Équipements","Superficie"
         ]}
         keys={["name", "site", "building", "floor", "sensors", "area"]}
         filters={[

@@ -10,10 +10,10 @@ function generateRandomNumber() {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 function DeviceTableRow({ row, keys }:{row:Record<string,string>,keys:string[]}) {
-  const params = useParams()
-   
+  const path = usePathname()
+
   return (
-    <Link href={`/oo/buildings/${generateRandomNumber()}/devices/${generateRandomNumber()}/overview`} className="cursor-pointer bg-white flex flex-row items-center py-3 border-b border-gray-100 hover:bg-gray-100">
+    <Link href={`/${path.split("/")[2]}/buildings/${generateRandomNumber()}/devices/${generateRandomNumber()}/overview`} className="cursor-pointer bg-white flex flex-row items-center py-3 border-b border-gray-100 hover:bg-gray-100">
       <div className="flex w-full flex-row items-center justify-between ">
         {keys.map((key, index) => {
           if (index === 0)

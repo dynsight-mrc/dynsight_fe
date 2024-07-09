@@ -5,6 +5,7 @@ import { HiOutlineUsers } from "react-icons/hi";
 import { BlocType } from "@/src/app/[lang]/types/sidebar.type";
 import { MdOutlineSensors } from "react-icons/md";
 import { BsDoorOpen } from "react-icons/bs";
+import { BsBuildings } from "react-icons/bs";
 
 export const SidebarMenuItems: BlocType[] = [
   {
@@ -15,18 +16,31 @@ export const SidebarMenuItems: BlocType[] = [
     ],
   },
   {
+    Icon: BsBuildings,
+    title: "Organisations",
+    items: [
+      {
+        name: "Liste",
+        groupLink: "",
+        singleLink: "",
+        link: "/admin/organizations",
+      },
+      {
+        name: "Ajouter une organisation",
+        groupLink: "add",
+        singleLink: "",
+        link: "/admin/organizations",
+      },
+    ],
+  },
+  /* {
     Icon: SlLocationPin,
     title: "Sites",
     items: [
       { name: "Liste", groupLink: "", singleLink: "", link: "/admin/sites" },
-      {
-        name: "Ajouter un site",
-        groupLink: "add",
-        singleLink: "",
-        link: "/admin/sites",
-      },
+    
     ],
-  },
+  }, */
   {
     Icon: BsBuilding,
     title: "Batiments",

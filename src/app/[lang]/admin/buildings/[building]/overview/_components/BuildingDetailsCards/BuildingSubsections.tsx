@@ -52,7 +52,7 @@ function BuildingSubsections() {
   let CurrentSubsection = subsectionsMapper[subsection];
   return (
     <>
-      <div className="border-t items-center flex flex-row space-x-5  border-gray-200  bg-white ">
+      <div className="border-t items-center flex flex-row  lg:space-x-5  border-gray-200  bg-white ">
         {subsectionMenuItems.map((ele,index)=><BuildingSubsectionMenuItem
           key={index}
           currentSubsection={subsection}
@@ -60,30 +60,7 @@ function BuildingSubsections() {
           menuItemKey={ele.itemKey}
           toggleBuildingSubection={toggleBuildingSubection}
         />)}
-       {/*  <BuildingSubsectionMenuItem
-          currentSubsection={subsection}
-          menuItemName="test"
-          menuItemKey="test"
-          toggleBuildingSubection={toggleBuildingSubection}
-        />
-        <div
-          onClick={() => toggleBuildingSubection("identity")}
-          className="h-full text-gray-500 uppercase text-sm py-2 px-3 "
-        >
-          Carte d'identité
-        </div>
-        <div
-          onClick={() => toggleBuildingSubection("characteristics")}
-          className="h-full text-gray-500 uppercase text-sm py-2 px-3 "
-        >
-          Caractéristique
-        </div>
-        <div
-          onClick={() => toggleBuildingSubection("activities")}
-          className="h-full text-gray-500 uppercase text-sm py-2 px-3 "
-        >
-          Activités spécifiques
-        </div> */}
+       
       </div>
 
       <CurrentSubsection />

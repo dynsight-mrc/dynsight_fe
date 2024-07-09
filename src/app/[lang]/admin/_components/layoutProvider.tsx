@@ -10,12 +10,13 @@ import { usePathname } from "next/navigation";
 import { SiteSidebarMenuItems } from "./sidebarMenu/siteSidebarMenuItems";
 import { BuildingSidebarMenuItems} from "./sidebarMenu/buildingSidebarMenuItems";
 import { DeviceSidebarMenuItems } from "./sidebarMenu/deviceSidebarMenuItems";
+import { OrganizationSidebarMenuItems } from "./sidebarMenu/organizationSidebarMenuItems";
 
 
 
 const sidebarMenuMapper :Record<string,any> = {
   home:SidebarMenuItems,
-  sites:SiteSidebarMenuItems,
+  organizations:OrganizationSidebarMenuItems,
   buildings:BuildingSidebarMenuItems,
   devices:DeviceSidebarMenuItems
 }
@@ -32,6 +33,8 @@ function LayoutProvider({
   
   const currentSegment = path.split("/")[3]
   const currentPage = path.split("/")[5]
+
+  
   
     
   return (
@@ -42,11 +45,11 @@ function LayoutProvider({
 
         <div
          className={` bg-gray-100 inset-0 flex flex-col w-full h-screen ${
-          sidebarMenuState ? "pl-6 lg:pl-72" : "pl-0 lg:pl-12"
+          sidebarMenuState ? "lg:pl-72" : "pl-0 lg:pl-12"
         } `}
         >
           <NavbarTeltonika />
-          <div className="w-full h-full pt-16  ">{children}</div>
+          <div className="w-full h-[94.5%] lg:h-full pt-16 ">{children}</div>
         </div>
       </div>
     

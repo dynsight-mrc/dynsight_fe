@@ -28,10 +28,20 @@
       "submitButton": "Login"
     }
   },
-  "admin": {},
+  "admin": {
+    "home":{
+      "title":"Organizations Mnagament",
+      "map":{
+        "loading":"Loading Map"
+      }
+    }
+   
+  },
   "oo": {},
   "co": {},
   "index": {
     "title": "Welcome"
   }
+ 
+  
 }

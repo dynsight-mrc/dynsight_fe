@@ -1,6 +1,6 @@
 import Table from "@/src/app/[lang]/_components/table/Table";
 import TableRow from "@/src/app/[lang]/_components/table/TableRow";
-import { CardInfo } from "@/src/app/[lang]/admin/buildings/[building]/overview/_components/CardInfo";
+import { CardInfo } from "@/src/app/[lang]/admin/buildings/[building]/overview/_components/BuildingDetailsCards/CardInfo";
 import React from "react";
 
 function page() {

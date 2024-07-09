@@ -144,7 +144,7 @@ function SidebarMenuTeltonica({ items }: { items: BlocType[] }) {
           sidebarMenuState
             ? "sm:w-72 overflow-y-auto overflow-x-hidden border-r border-r-200"
             : "sm:w-12"
-        } absolute h-screen min-h-screen font-opensans hidden lg:inline-block `}
+        } absolute z-30 h-screen min-h-screen font-opensans hidden lg:inline-block `}
       >
         <div className="w-full flex flex-col h-full ">
           <EmptyBloc menuState={sidebarMenuState} height="12" />
@@ -184,13 +184,13 @@ function SidebarMenuTeltonica({ items }: { items: BlocType[] }) {
 
       {/* sm screen */}
       <div
-        className={`absolute bg-gray-100 bottom-0  lg:hidden transition-all duration-300 ease-out  ${
+        className={`absolute bg-gray-100 bottom-0 z-20  lg:hidden transition-all duration-300 ease-out  ${
           sidebarMenuState
             ? "flex w-full h-screen  pt-20"
             : "w-0 h-0 overflow-hidden"
         }`}
       >
-        <div className="w-full flex flex-col h-full overflow-y-auto">
+        <div className="w-full  flex flex-col h-full overflow-y-auto">
           {items.map((ele,index) => (
             <MenuBlocSmScreen
             key={index}
@@ -202,7 +202,7 @@ function SidebarMenuTeltonica({ items }: { items: BlocType[] }) {
         </div>
       </div>
 
-      <div className="absolute bottom-0 w-full z-10 h-14 bg-white border-t border-gray-100  lg:hidden">
+      <div className="absolute bottom-0 w-full z-30 h-14 bg-white border-t border-gray-100  lg:hidden">
         <div className="w-full h-full flex items-center justify-start pl-3">
           {sidebarMenuState ? (
             <VscChromeClose

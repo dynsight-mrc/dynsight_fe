@@ -141,7 +141,6 @@ function MySecondMap() {
     height: "100%",
   };
   const handleCLickMark = () => {
-    console.log("ok");
   };
   return (
     <div className="w-full h-full">

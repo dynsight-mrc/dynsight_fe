@@ -38,7 +38,7 @@ function TableFilters({
   };
 
   return (
-    <div className="px-3 flex flex-col sm:flex-row justify-between items-center py-1 border-b border-b-gray-200">
+    <div className="px-3 flex flex-row sm:flex-row justify-between items-center py-1 border-b border-b-gray-200">
       <div className="flex flex-row space-x-1 sm:space-x-1 border-gray-200 ">
         {filters.map((filter, index) => (
           <FilterTypeElement

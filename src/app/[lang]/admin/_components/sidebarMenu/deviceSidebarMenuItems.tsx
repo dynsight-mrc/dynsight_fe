@@ -5,14 +5,26 @@ import { BiLeftArrowCircle } from "react-icons/bi";
 export const DeviceSidebarMenuItems: BlocType[] = [
   {
     Icon: BiLeftArrowCircle,
-    title: "Sites overview",
+    title: "Aperçu",
     items: [
       { name: "Accueil", groupLink: "", singleLink: "", link: "/admin/home" },
       {
-        name: "Liste des sites",
+        name: "Liste des équipments",
         groupLink: "",
         singleLink: "",
-        link: "/admin/sites",
+        link: "/admin/devices",
+      },
+      {
+        name: "Liste des immeubles",
+        groupLink: "",
+        singleLink: "",
+        link: "/admin/buildings",
+      },
+      {
+        name: "Liste des organisations",
+        groupLink: "",
+        singleLink: "",
+        link: "/admin/organizations",
       },
     ],
   },
@@ -21,30 +33,12 @@ export const DeviceSidebarMenuItems: BlocType[] = [
     title: "Gestion d'équipment",
     items: [
       {
-        name: "Device Overview",
+        name: "Apperçu d'équipement",
         groupLink: "",
         singleLink: "overview",
         link: "/admin/devices",
       },
-      {
-        name: "Buildings List",
-        groupLink: "",
-        singleLink: "buildings-list",
-        link: "/admin/sites",
-      },
-
-      {
-        name: "Add building",
-        groupLink: "",
-        singleLink: "add-building",
-        link: "/admin/sites",
-      },
-      {
-        name: "Change site info",
-        groupLink: "",
-        singleLink: "parameters",
-        link: "/admin/sites",
-      },
+    
     ],
   },
 ];

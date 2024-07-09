@@ -121,8 +121,8 @@ async function Home({ params: { lang } }: { params: { lang: Locale } }) {
   } = session;
 
   return (
-    <div className="text-gray-500  w-full h-full flex flex-col  lg:flex-row font-opensans overflow-hidden">
-      <div className="lg:w-1/2 w-full  ">
+    <div className="text-gray-500 h-[100%] w-full lg:h-full flex flex-col  lg:flex-row font-opensans overflow-auto">
+      <div className="lg:w-1/2 w-full">
         <div className="bg-white flex flex-row justify-between items-center p-5 ">
           <div className="bg-white font-opensans text-xl">Space Management</div>
           <div>
@@ -163,7 +163,7 @@ async function Home({ params: { lang } }: { params: { lang: Locale } }) {
         </div>
       </div>
 
-      <div className="lg:w-1/2 w-full h-[100%]  overflow-scroll">
+      <div className="lg:w-1/2 w-full h-[100%] z-0  overflow-scroll">
         {/*  <Image  src={Map} className="w-full h-full object-cover" alt="google-map"/> */}
         {/*  <MySecondMap /> */}
         <CustomGoogleMap

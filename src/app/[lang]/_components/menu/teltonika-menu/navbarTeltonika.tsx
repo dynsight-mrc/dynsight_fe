@@ -207,8 +207,8 @@ function NavbarTeltonika() {
   };
 
   return (
-    <div className={`${sidebarMenuState?"pl-72 left-0":"pl-16 left-8 "} fixed z-20 h-16 w-full pl-5`}>
-      <div className={`  pl-3 mr-4 h-full flex justify-between  flex-row  items-center border-b  border-gray-200 `}>
+    <div className={`${sidebarMenuState?"pl-3 lg:pl-75 pr-7 lg:pr-5 ":"pl-3 pr-7 lg:pr-5 lg:pl-16"} bg-gray-100 left-0  fixed z-20  h-16 w-full`}>
+      <div className={`h-full flex justify-between  flex-row  items-center border-b  border-gray-200 `}>
         <NavbarLogo />
         <div className="flex flex-row items-center space-x-5">
           <Notifications />
