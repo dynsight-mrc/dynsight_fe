@@ -69,26 +69,26 @@ function BuildingForm() {
         title="Année de construction"
         type="number"
         registerKey={"building.constructionYear"}
-        validations={{required: "Ce champ est obligatoir" }}
+        validations={{required: "Ce champ est obligatoir",valueAsNumber:true  }}
       />
  
       <TextInput
         title="Surface"
         type="number"
-        registerKey={"building.area"}
-        validations={{required: "Ce champ est obligatoir" }}
+        registerKey={"building.surface"}
+        validations={{required: "Ce champ est obligatoir",valueAsNumber:true }}
       />
        <TextInput
         title="Latitude"
         registerKey="building.coordinates.lat"
         type="number"
-        validations={{ required: "Ce champ est obligatoire" }}
+        validations={{ required: "Ce champ est obligatoire",valueAsNumber:true  }}
       />
       <TextInput
         title="Longitude"
         registerKey="building.coordinates.long"
         type="number"
-        validations={{ required: "Ce champ est obligatoire" }}
+        validations={{ required: "Ce champ est obligatoire",valueAsNumber:true  }}
       />
      
       <DropDownRadioButtons

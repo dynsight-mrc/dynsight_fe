@@ -9,6 +9,6 @@ export const createOrganization = async ({session, data}:{session:CustomSession,
       Authorization: `Bearer ${token}`,
     },
   };
-  const res = await axios.post("/account",data,config);
+  const res = await axios.post("/accounts",data,config);
   return res.data
 };

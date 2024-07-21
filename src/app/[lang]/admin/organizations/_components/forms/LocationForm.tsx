@@ -1,8 +1,6 @@
 import React from "react";
 import TextInput from "../inputs/TextInput";
-import {
-  Libraries,
-} from "@react-google-maps/api";
+import { Libraries } from "@react-google-maps/api";
 const libraries: Libraries = ["places"];
 
 function LocationForm() {
@@ -27,23 +25,26 @@ function LocationForm() {
         validations={{ required: "Ce champ est obligatoire" }}
       />
 
-<TextInput
+      <TextInput
         title="Ville"
         registerKey="location.city"
         type="text"
         validations={{ required: "Ce champ est obligatoire" }}
       />
-<TextInput
+      <TextInput
         title="Etat / Province / Région"
         registerKey="location.state"
         type="text"
         validations={{ required: "Ce champ est obligatoire" }}
       />
-<TextInput
+      <TextInput
         title="Code Postal"
         registerKey="location.postalCode"
-        type="text"
-        validations={{ required: "Ce champ est obligatoire" }}
+        type="number"
+        validations={{
+          required: "Ce champ est obligatoire",
+          valueAsNumber: true,
+        }}
       />
       <TextInput
         title="Pays"
@@ -55,15 +56,14 @@ function LocationForm() {
         title="Latitude"
         registerKey="location.coordinates.lat"
         type="number"
-        validations={{ required: "Ce champ est obligatoire" }}
+        validations={{ required: "Ce champ est obligatoire",valueAsNumber:true  }}
       />
       <TextInput
         title="Longitude"
         registerKey="location.coordinates.long"
         type="number"
-        validations={{ required: "Ce champ est obligatoire" }}
+        validations={{ required: "Ce champ est obligatoire",valueAsNumber:true  }}
       />
-     
     </>
   );
 }

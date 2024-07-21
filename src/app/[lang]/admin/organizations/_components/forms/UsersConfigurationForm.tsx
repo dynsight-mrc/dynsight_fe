@@ -27,12 +27,18 @@ function UsersConfigurationForm() {
                     <span className="text-lg text-blue-400  px-2 mt-3">{index +1}#</span>
 
           <div
-            className={` w-full sm:grid-cols-2 lg:grid lg:grid-cols-4 lg:gap-x-3 `}
+            className={` w-full sm:grid-cols-2 lg:grid lg:grid-cols-5 lg:gap-x-3 `}
           >
             <TextInput
-              title="Nom / Prénom"
+              title="Nom"
               type="text"
-              registerKey={`users.fullName.${index}`}
+              registerKey={`users.lastName.${index}`}
+              validations={{ required: "Ce champ est obligatoir" }}
+            />
+            <TextInput
+              title="Prénom"
+              type="text"
+              registerKey={`users.firstName.${index}`}
               validations={{ required: "Ce champ est obligatoir" }}
             />
             <TextInput
@@ -58,14 +64,15 @@ function UsersConfigurationForm() {
             />
             <DropDownRadioButtons
               validations={{ required: "Ce champ est obligatoir" }}
-              registerKey={`users.type.${index}`}
+              registerKey={`users.role.${index}`}
               title="Type de Profile"
               options={[
-                { label: "Organization Owner", value: "1" },
-                { label: "Facility Manager", value: "5" },
-                { label: "Property Manager ", value: "6" },
-                { label: "Asset Manager ", value: "8" },
-                { label: "Instaler ", value: "7" },
+                { label: "Company Occupant", value: "company-occupant" },
+                { label: "Org. Owner", value: "organization-owner" },
+                { label: "Facility Manager", value: "facility-manager" },
+                { label: "Property Manager ", value: "property-manager" },
+                { label: "Asset Manager ", value: "asset-manager" },
+                { label: "Instaler ", value: "installer" },
               ]}
             />
            

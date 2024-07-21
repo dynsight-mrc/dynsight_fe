@@ -99,9 +99,10 @@ function BuildingOverview() {
           </div> */}
       <div className=" mt-10 h-[450px] w-full ">
         <CustomGoogleMap
-          center={{ lat: 37.786379746800854,lng: -122.40134618650083}}
+          lang="en"
+          center={{ lat: 37.786379746800854, lng: -122.40134618650083 }}
           id="dynsight-420610"
-          marks={[{ lat: 37.786379746800854,lng: -122.40134618650083}]}
+          marks={[{ lat: 37.786379746800854, lng: -122.40134618650083 }]}
           options={{
             zoom: 19,
             mapId: "cdacb2b33ed0a116",

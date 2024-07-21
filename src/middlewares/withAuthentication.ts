@@ -24,6 +24,7 @@ export const withAuthentication: MiddlewareFactory = (
 
     //let cookie = request.cookies.get("next-auth.session-token");
     let cookie = request.cookies.get(process.env.COOKIE_NAME!);
+    console.log(process.env.COOKIE_NAME);
     
     //let cookie = request.cookies.get("__Secure-next-auth.session-token");
     

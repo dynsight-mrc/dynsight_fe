@@ -16,7 +16,7 @@ import { CustomSession } from "../../../types/session.type";
 import { useToast } from "@/src/app/[lang]/_components/shadcn/ui/use-toast";
 import LocationForm from "../_components/forms/LocationForm";
 
-function page() {
+function Page() {
   const { data: _session } = useSession();
   const session = _session as CustomSession;
   const methods = useForm({
@@ -71,16 +71,17 @@ function page() {
         number: [1, 2, 3],
       },
       blocs: {
-        name: [ 'bloc 1' ,'bloc 1',],
-        type: [ 'office' ],
+        name: [ 'bloc 1' ,'bloc 2',],
+        type: [ 'office',"storage" ],
         surface: [ 12,43 ],
         floors: [ 'etage 1s',"etage 3s" ]
       },
       users: {
-        fullName: [ 'dsqdsq' ],
+        firstName: [ 'dsqdsq' ],
+        lastName:["lastname"],
         email: [ 'admin@dynsight.fr' ],
         password: [ 'Ohm2023adp??' ],
-        type: [ '1' ]
+        role: [ '1' ]
       },
       organization: {
         reference: 'MINE pro max',
@@ -170,8 +171,8 @@ function page() {
         </FormSection>
         <div className="w-full flex flex-row justify-center py-5">
           <div
-            //onClick={methods.handleSubmit(onSubmit)}
-            onClick={createAccount}
+            onClick={methods.handleSubmit(onSubmit)}
+            //onClick={createAccount}
             className="group cursor-pointer flex flex-row space-x-2  text-teltonika-800 border border-teltonika-800 rounded-md py-1 px-2 hover:text-white hover:bg-teltonika-800"
           >
             {postOrganization.isPending && (
@@ -194,4 +195,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;

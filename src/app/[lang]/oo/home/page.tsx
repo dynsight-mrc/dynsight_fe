@@ -167,6 +167,7 @@ async function Home({ params: { lang } }: { params: { lang: Locale } }) {
         {/*  <Image  src={Map} className="w-full h-full object-cover" alt="google-map"/> */}
         {/*  <MySecondMap /> */}
         <CustomGoogleMap
+        lang="en"
           center={{ lat: 36.9322023, lng: 8.624958 }}
           id="dynsight-420610"
           marks={[

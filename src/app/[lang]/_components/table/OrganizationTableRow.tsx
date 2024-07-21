@@ -1,33 +1,37 @@
 "use client";
 import React, { useState } from "react";
-import Vayyar from "@/public/skyscapper5.jpg";
+import BuildingAlt from "@/public/building-alt.svg"
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { ReadOrganizationOverviewDto } from "../../admin/organizations/dto/read-organization-overview.dto";
+//import {ReadOrganizationOverviewDto} from "@/src/app/[lang]/admin/organizations/dto/read-organization-overview.dto"
 function generateRandomNumber() {
   const min = Math.pow(10, 9); // 10^9
   const max = Math.pow(10, 10) - 1; // 10^10 - 1
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-function OrganizationTableRow({ row, keys }:{row:Record<string,string>,keys:string[]}) {
+
+function OrganizationTableRow({ row, keys }:{row:ReadOrganizationOverviewDto,keys:string[]}) {
+
   const path = usePathname()
   return (
-    <Link href={`/${path.split("/")[2]}/organizations/${generateRandomNumber()}/overview`} className="cursor-pointer bg-white flex flex-row items-center py-3 border-b border-gray-100 hover:bg-gray-100">
+    <Link href={`/${path.split("/")[2]}/organizations/${row.id}/overview`} className="cursor-pointer bg-white flex flex-row items-center py-3 border-b border-gray-100 hover:bg-gray-100">
       <div className="flex w-full flex-row items-center justify-between ">
-        {keys.map((key, index) => {
+        {keys.map((key,index) => {
           if (index === 0)
             return (
               <div key={index} className={`flex flex-row w-full w-1/${keys.length} mx-3 items-center space-x-3`}>
                 <div className="w-9 h-9 rounded-full overflow-hidden object-cover">
                   <Image
-                    src={row.image}
+                    src={row.image??BuildingAlt}
                     alt="site-image"
                     className="w-full h-full"
                   />
                 </div>
                 <div className="flex flex-col items-start justify-center leading-tight">
-                  <span className="text-blue-400">#1235667</span>
-                  <span>{row["name"]}</span>
+                  <span className="text-blue-400">{row.reference}</span>
+                  <span>{row.name}</span>
                 </div>
               </div>
             );
@@ -36,7 +40,7 @@ function OrganizationTableRow({ row, keys }:{row:Record<string,string>,keys:stri
               key={index}
               className={`mx-3 sm:text-base text-xs text-gray-600 w-full  w-1/${keys.length}`}
             >
-              {row[key]}
+              {row[key as  keyof ReadOrganizationOverviewDto]}
             </div>
           );
         })}

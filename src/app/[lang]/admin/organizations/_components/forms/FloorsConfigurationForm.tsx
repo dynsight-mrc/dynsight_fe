@@ -8,7 +8,7 @@ function FloorsConfigurationForm() {
   const props = useFormLayoutContext();
   const { getValues } = useFormContext();
   const validateUniqReference = (fieldValue: string) => {
-    const floorsRef = getValues("floors.reference");
+    const floorsRef = getValues("floors.number");
 
     if (floorsRef.filter((ele: string) => ele === fieldValue).length > 1) {
       return "Ce champ doit etre unique";
@@ -39,11 +39,12 @@ function FloorsConfigurationForm() {
           >
             <TextInput
               title="Numéro"
-              type="text"
+              type="number"
               registerKey={`floors.number.${index}`}
               validations={{
                 required: "Ce champ es obligatoir",
                 validate: validateUniqReference,
+                valueAsNumber:true 
               }}
             />
 

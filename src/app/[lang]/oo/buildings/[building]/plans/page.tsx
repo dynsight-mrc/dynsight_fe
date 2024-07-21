@@ -178,6 +178,7 @@ function Page({ params }: { params: { building: string } }) {
       {/* <div className="w-1/2 md:w-3/4 h-full "> */}
       <div className="lg:w-full w-full h-[1030px]  overflow-scroll">
         <CustomGoogleMap
+        lang="en"
           center={{ lat: 36.72986070369422, lng: 3.095980791068165 }}
           polygon={
             currentFloor?.coordinates &&

@@ -11,7 +11,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/src/app/[lang]/_components/shadcn/ui/alert-dialog";
-function page() {
+function Page() {
   const [alert, setAlert] = useState(false);
   return (
     <div>
@@ -41,4 +41,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;

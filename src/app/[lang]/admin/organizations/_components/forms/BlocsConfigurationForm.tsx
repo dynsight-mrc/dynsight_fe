@@ -6,7 +6,7 @@ import DropDownRadioButtons from "../inputs/DropDownRadioButtons";
 import { VscTrash } from "react-icons/vsc";
 import DropDownRadioButtonsWithFormatter from "../inputs/DropDownRadioButtonWithFormatter";
 const formatFloorsData = (data: {
-  number: string[];
+  number: number[];
   name: string[];
 }) => {
   
@@ -26,7 +26,7 @@ const formatFloorsData = (data: {
 function BlocsConfigurationForm() {
   const { watch,getValues } = useFormContext();
   const validateUniqBlocName = (fieldValue: string) => {
-    const blocsNames = getValues("blocs.number");
+    const blocsNames = getValues("blocs.name");
 
     if (blocsNames.filter((ele: string) => ele === fieldValue).length > 1) {
       return "Ce champ doit etre unique";
@@ -49,7 +49,7 @@ function BlocsConfigurationForm() {
             <TextInput
               title="Nom/Numéro"
               type="text"
-              registerKey={`blocs.number.${index}`}
+              registerKey={`blocs.name.${index}`}
               validations={{ required: "Ce champ est obligatoir",validate:validateUniqBlocName }}
             />
             <DropDownRadioButtons
@@ -57,17 +57,17 @@ function BlocsConfigurationForm() {
               registerKey={`blocs.type.${index}`}
               title="Type"
               options={[
-                { label: "Office", value: "1" },
-                { label: "Restroom", value: "5" },
-                { label: "Storage", value: "6" },
+                { label: "Office", value: "office" },
+                { label: "Restroom", value: "restroom" },
+                { label: "Storage", value: "storage" },
               ]}
             
             />
             <TextInput
               title="Surface"
               type="number"
-              registerKey={`blocs.area.${index}`}
-              validations={{ required: "Ce champ est obligatoir" }}
+              registerKey={`blocs.surface.${index}`}
+              validations={{ required: "Ce champ est obligatoir",valueAsNumber:true  }}
             />
              <DropDownRadioButtonsWithFormatter
               validations={{required:"Ce champ est obligatoir"}}

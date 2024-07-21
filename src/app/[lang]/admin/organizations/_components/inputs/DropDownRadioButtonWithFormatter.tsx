@@ -17,7 +17,7 @@ function DropDownRadioButtonsWithFormatter({
   title: string;
   registerKey: string;
   validations: Record<string, unknown>;
-  formater: (data: any) => { label: string; value: string }[] | undefined;
+  formater: (data: any) => { label: number; value: string }[] | undefined;
   options: { label: string; value: string }[] | undefined;
 }) {
   const {

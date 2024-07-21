@@ -27,7 +27,7 @@ const checkSignleOrGroupCurrentPage = (
   let currentGroupLinkL2 = splitedPath[6];
   let currentGroupLink = splitedPath[4];
   const currentSingleLink = splitedPath[5];
-  
+
   if (currentSingleLinkL2) {
     return currentSingleLinkL2 === singleLinkL2;
   }
@@ -35,7 +35,7 @@ const checkSignleOrGroupCurrentPage = (
     return currentGroupLinkL2 === groupLinkL2;
   }
 
-  if (currentSingleLink && (groupLinkL2===undefined)) {
+  if (currentSingleLink && groupLinkL2 === undefined) {
     return currentSingleLink === singleLink;
   }
 
@@ -92,7 +92,6 @@ export default function MenuBlocItem({
 }: BlocItemType) {
   const path = usePathname();
 
-
   let customLink = generateLink(
     path,
     link,
@@ -112,6 +111,7 @@ export default function MenuBlocItem({
 
   return (
     <Link
+      
       href={customLink}
       className={`text-gray-500 font-normal font-opensans hover:text-gray-600 hover:translate-x-3 transition-all duration-400 ease-out text-base tracking-wide cursor-pointer ${
         isCurrentPage && "translate-x-3 text-teltonika-900 underline hover:non"
