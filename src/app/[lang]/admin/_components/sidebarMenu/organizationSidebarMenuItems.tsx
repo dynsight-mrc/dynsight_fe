@@ -12,7 +12,7 @@ export const OrganizationSidebarMenuItems: BlocType[] = [
         name: "Liste des organizations",
         groupLink: "",
         singleLink: "",
-        link: "/admin/orangizations",
+        link: "/admin/organizations",
       },
     ],
   },

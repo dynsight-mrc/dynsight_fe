@@ -3,11 +3,11 @@ import React, { useEffect, useRef, useState } from "react";
 import UserMenu from "./userMenu";
 import { TiArrowSortedDown } from "react-icons/ti";
 import { CustomSession } from "../../../types/session.type";
-import { useSession } from "next-auth/react";
+import {  } from "next-auth/react";
 import Image from "next/image";
 import Avatar from "@/public/avatar.svg";
 function UserComponent() {
-  const { data: session } = useSession();
+  const { data: session } = ();
   const [userMenuIsOpen, setUserMenuIsOpen] = useState(false);
   const userComponentRef = useRef<HTMLDivElement>(null);
 

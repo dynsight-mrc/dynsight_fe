@@ -1,6 +1,10 @@
 import React from "react";
 import Table from "../../_components/table/Table";
 import SpaceTableRow from "../../_components/table/SpaceTableRow";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/src/app/api/auth/authOptions";
+import { ReadBlocOverview } from "./dto/read-bloc.dto";
+import { getBlocsOverview } from "./_api/getBlocs";
 
 
 
@@ -33,16 +37,19 @@ let spaces = [
     sensors: 1,
   },
 ];
-function page() {
+async function page() {
+  let session =  await getServerSession(authOptions)
+  let blocs : ReadBlocOverview[] =await getBlocsOverview(session)
+  
   return (
     <div>
       <Table
         RowComponent={SpaceTableRow}
-        rows={spaces}
+        rows={blocs}
         header={[
           "Intitulé", "Organisation", "Immeuble", "Étage", "Équipements","Superficie"
         ]}
-        keys={["name", "site", "building", "floor", "sensors", "area"]}
+        keys={["name", "organization.name", "building.name", "floor.name", "sensors", "surface"]}
         filters={[
           { key: "all", title: "All spaces" },
           

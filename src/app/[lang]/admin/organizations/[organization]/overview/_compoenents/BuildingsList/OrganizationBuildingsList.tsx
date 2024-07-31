@@ -16,8 +16,7 @@ function OrganizationBuildingsList({
   image,
   reference,
   buildings,
-  floors,
-}: OrganizationBuildingsLIstProps) {
+}: any) {
   return (
     <div className="w-1/2 md:w-1/4  bg-white border-r border-r-gray-200 h-full lg:block hidden">
       <Link href="/admin/organizations">
@@ -34,13 +33,13 @@ function OrganizationBuildingsList({
         name={title}
         image={image}
       />
-      <div className="overflow-auto overflow-x-hidden h-[88%]">
-        {buildings.map((building) => (
+      <div className="overflow-auto overflow-x-hidden h-[85%]">
+        {buildings.map((building:any) => (
           <BuildingListItem
             name={building.name}
             key={building.id}
             image={building.image}
-            floors={floors.filter((floor) => floor.buildingId === building.id)}
+            floors={building.floors}
           />
         ))}
       </div>

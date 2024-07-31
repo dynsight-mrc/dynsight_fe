@@ -5,6 +5,10 @@ import sky from "@/public/skyscapper.png"
 import sky2 from "@/public/skyscapper2.jpg"
 import sky3 from "@/public/skyscapper3.jpeg"
 import sky4 from "@/public/skyscapper4.jpeg"
+import { getBuildingsOveview } from "./_api/getBuilding";
+import { authOptions } from "@/src/app/api/auth/authOptions";
+import { getServerSession } from "next-auth";
+import { ReadBuildingOverview } from "./dto/ReadBuildingDto";
 
 let buildings = [
   {
@@ -138,14 +142,21 @@ let buildings = [
     manager: "user@dynsight.fr",
   },
 ]
-function page() {
+async function page() {
+  
+  let session =  await getServerSession(authOptions)
+  let buildings : ReadBuildingOverview[] =await getBuildingsOveview(session)
+  
+
+  
+   
   return (
     <div>
       <Table
         RowComponent={BuildingTableRow}
         rows={buildings}
-        header={["Intitulé","Organisation", "Type", "Manager", "Étages", "Superfice"]}
-        keys={["name","site", "type",  "manager", "floors","area"]}
+        header={["Intitulé","Organisation", "Type", "Propriétaire", "Étages","Blocs", "Superfice"]}
+        keys={["name","organization.name", "type",  "organization.owner", "numberOfFloors","numberOfRooms","surface"]}
         filters={[
           { key: "all", title: "All buildings" },
           { key: "commercial", title: "Commercial" },

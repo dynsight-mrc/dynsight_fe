@@ -1,14 +1,30 @@
 import React from "react";
+import Table from "@/src/app/[lang]/_components/table/Table";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/src/app/api/auth/authOptions";
+import { ReadUserOverview } from "./dto/read-user.dto";
+import { getUsersOveview } from "./_api/getUsers";
+import UserTableRow from "@/src/app/[lang]/_components/table/UserTableRow";
 
-function page() {
+;
+async function page() {
+  let session =  await getServerSession(authOptions)
+  let users : ReadUserOverview[] =await getUsersOveview(session)
+  
   return (
     <div>
-      <div className="bg-red-100 rounded-md border border-gray-200 p-3">
-        <li>
-          this page will contain a list of all sites managers (users/organization owners accounts)
-        </li>
-  
-      </div>
+      <Table
+        RowComponent={UserTableRow}
+        rows={users}
+        header={[
+          "Nom", "Prénom", "Email", "Rôle","Organization"
+        ]}
+        keys={["firstName", "lastName", "email", "role", "organization"]}
+        filters={[
+          { key: "all", title: "Tous les utilisateurs" },
+          
+        ]}
+      />
     </div>
   );
 }

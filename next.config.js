@@ -8,7 +8,7 @@ const nextConfig = {
       fullUrl: true,
     },
   },  
-  output: 'standalone',
+  //output: 'standalone',
   experimental: {
     staleTimes: {
       dynamic: 5,

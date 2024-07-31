@@ -12,17 +12,16 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/src/app/api/auth/authOptions";
 import { ReadOrganizationOverviewDto } from "./dto/read-organization-overview.dto";
 
-
 async function page() {
   const session = (await getServerSession(authOptions)) as CustomSession;
 
-  let organizations: ReadOrganizationOverviewDto[] | undefined =
+  let organizations: ReadOrganizationOverviewDto[] =
     await getOrganizations(session);
-  
+  //let jokes = await getJoke();
 
   return (
     <div>
-      
+      {/* {jokes.value} */}
       <Table
         RowComponent={OrganizationTableRow}
         rows={organizations!}

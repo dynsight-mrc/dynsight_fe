@@ -65,7 +65,7 @@ export const BuildingSidebarMenuItems: BlocType[] = [
   },
   {
     Icon: BsDoorOpen,
-    title: "Gestion des espaces",
+    title: "Gestion des blocs",
     items: [
       {
         name: "Liste des espaces",

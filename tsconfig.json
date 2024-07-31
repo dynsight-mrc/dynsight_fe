@@ -20,6 +20,7 @@
     ],
     "paths": {
       "@/*": ["./*"],
+      "@admin/*":["./src/app/[lang]/admin/*"]
       
     }
   },

@@ -20,6 +20,7 @@ function BuildingFloorsList({
   floors,
   spaces,
 }: BuildingFloorsListProps) {
+  
   return (
     <div className="w-1/2 md:w-1/4  bg-white border-r border-r-gray-200 h-full lg:block hidden">
       <Link href={`/admin/organizations/${buildingId}/buildings-list`}>
@@ -42,7 +43,7 @@ function BuildingFloorsList({
           <FloorListItem
             name={floor.name}
             key={floor.id}
-            spaces={spaces.filter((space) => space.floorId === floor.id)}
+            spaces={spaces.flat().filter((space) => space.floorId === floor.id)}
           />
         ))}
       </div>

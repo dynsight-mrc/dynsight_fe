@@ -4,6 +4,8 @@ import BuildingOverview from "./BuildingOverview";
 import BuildingIdentity from "./BuildingIdentity";
 import BuildingCharacteristics from "./BuildingCharacteristics";
 import BuildingSpecialActivities from "./BuildingSpecialActivities";
+import { ReadBuildingDto } from "@admin/buildings/dto/ReadBuildingDto";
+import { BuildingContext } from "../../context/BuildingContext";
 
 const subsectionsMapper: Record<string, React.ElementType> = {
   summary: BuildingOverview,
@@ -44,14 +46,14 @@ function BuildingSubsectionMenuItem({
   );
 }
 
-function BuildingSubsections() {
+function BuildingSubsections({building}:{building:ReadBuildingDto}) {
   const [subsection, setSubsection] = useState<string>("summary");
   const toggleBuildingSubection = (subsection: string) => {
     setSubsection(subsection);
   };
   let CurrentSubsection = subsectionsMapper[subsection];
   return (
-    <>
+    <BuildingContext.Provider value={building}>
       <div className="border-t items-center flex flex-row  lg:space-x-5  border-gray-200  bg-white ">
         {subsectionMenuItems.map((ele,index)=><BuildingSubsectionMenuItem
           key={index}
@@ -64,7 +66,7 @@ function BuildingSubsections() {
       </div>
 
       <CurrentSubsection />
-    </>
+    </BuildingContext.Provider>
   );
 }
 

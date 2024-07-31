@@ -1,6 +1,6 @@
 import Image, { StaticImageData } from "next/image";
 import { BsChevronDown, BsChevronUp } from "react-icons/bs";
-
+import BuildingAlt from "@/public/building-alt.svg"
 export default function BuildingComponent({
   name,
   image,
@@ -21,7 +21,7 @@ export default function BuildingComponent({
     >
       <div className="pl-3 flex flex-row items-center space-x-3">
         <div className="w-8 h-8 rounded-full overflow-hidden ">
-          <Image src={image} alt="" className="w-full h-full object-cover" />
+          <Image src={image ?? BuildingAlt} alt="" className="w-full h-full object-cover" />
         </div>
         <span className="text-gray-500">
           {/* Corporate Dive Buildings */}

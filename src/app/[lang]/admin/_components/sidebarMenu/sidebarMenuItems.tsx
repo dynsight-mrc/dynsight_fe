@@ -67,13 +67,13 @@ export const SidebarMenuItems: BlocType[] = [
   }, */
   {
     Icon: BsDoorOpen,
-    title: "Espaces",
+    title: "Blocs",
     items: [
       {
         name: "Liste",
         groupLink: "",
         singleLink: "",
-        link: "/admin/spaces",
+        link: "/admin/blocs",
       },
     ],
   },

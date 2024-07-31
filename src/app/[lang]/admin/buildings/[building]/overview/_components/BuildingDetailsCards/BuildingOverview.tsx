@@ -4,12 +4,12 @@ import EnergyWidget from "@/src/app/[lang]/admin/organizations/[organization]/ov
 import WeatherWidget from "@/src/app/[lang]/admin/organizations/[organization]/overview/_compoenents/WeatherWidget";
 import Widget from "@/src/app/[lang]/admin/organizations/[organization]/overview/_compoenents/Widget";
 import WorkingHoursWidget from "@/src/app/[lang]/admin/organizations/[organization]/overview/_compoenents/WorkingHoursWidget";
-import React from "react";
+import React, { useContext } from "react";
 import { GoBell } from "react-icons/go";
 import { MdDeviceHub, MdOutlineSensors } from "react-icons/md";
-import { SlEnergy } from "react-icons/sl";
-import { TiWeatherPartlySunny } from "react-icons/ti";
-let floors = [
+
+import { BuildingContext } from "../../context/BuildingContext";
+/* let floors = [
   {
     buildingId: "1",
     id: "1",
@@ -109,8 +109,14 @@ let floors = [
     sensors: 20,
   },
   
-];
+]; */
 function BuildingOverview() {
+  const building = useContext(BuildingContext);
+  let floors =
+    building &&
+    building.floors.map((floor) => ({ ...floor, rooms: floor.rooms.length }));
+  //const <build</build>ing :ReadBuildingDto = await getBuildingById(session,params.building)
+  //let floors = building.floors.map(floor=>({...floor,rooms:floor.rooms.length}))
   return (
     <div className="h-[70%] overflow-auto px-2">
       {/* WIDGETS */}
@@ -141,9 +147,9 @@ function BuildingOverview() {
         </div>
         <Table
           RowComponent={FloorTableRow}
-          rows={floors}
-          header={["Intitulé", "Espaces", "Équipements"]}
-          keys={["name", "spaces", "sensors"]}
+          rows={floors!}
+          header={["Intitulé", "Numéro", "Blocs"]}
+          keys={["name", "number", "rooms"]}
           filters={[{ key: "all", title: "All floors" }]}
         />
       </div>

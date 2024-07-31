@@ -14,15 +14,21 @@ import BuildingTableRow from "../../_components/table/BuildingTableRow";
 import CustomGoogleMap from "../../_components/CustomGoogleMap";
 import OrganizationTableRow from "../../_components/table/OrganizationTableRow";
 import { getDictionary } from "@/src/lib/dictionary";
+import { ReadOrganizationOverviewDto } from "../organizations/dto/read-organization-overview.dto";
+import { getOrganizations } from "../organizations/_api/getOrganizations";
 
 async function Home({ params: { lang } }: { params: { lang: Locale } }) {
   let session = (await getServerSession(authOptions)) as CustomSession;
-let dict = await getDictionary(lang)
+  let dict = await getDictionary(lang);
+  let organizations: ReadOrganizationOverviewDto[] | undefined =
+    await getOrganizations(session);
+  let {
+    admin: { home },
+  } = dict;
 
-let {admin:{home}} =  dict
   return (
     <div className="text-gray-500  w-full h-full flex flex-col  lg:flex-row font-opensans overflow-hidden">
-      <div className="lg:w-1/2 w-full  ">
+      <div className="lg:w-1/2 w-full ">
         <div className="bg-white flex flex-row justify-between items-center p-5 ">
           <div className="bg-white font-opensans text-xl">{home.title}</div>
           <div>
@@ -37,59 +43,50 @@ let {admin:{home}} =  dict
         <div className="bg-white flex flex-row justify-between items-center px-5 py-3 pb-10 border-b border-b-gray-200">
           <div className="flex flex-row  space-x-5 divide-x-2 ">
             <div className="flex flex-col items-center justify-center pr-5">
-              <span className="text-3xl text-gray-500 font-opensans">12</span>
+              <span className="text-3xl text-gray-500 font-opensans">
+                {organizations?.length}
+              </span>
               <span className="text-xl text-gray-400">Organisations</span>
             </div>
             <div className="flex flex-col items-center justify-center px-8">
-              <span className="text-3xl text-gray-500 font-opensans">19</span>
+              <span className="text-3xl text-gray-500 font-opensans">
+                {organizations?.reduce(
+                  (acc, val: ReadOrganizationOverviewDto) =>
+                    acc + val.numberOfBuildings,
+                  0
+                )}
+              </span>
               <span className="text-xl text-gray-400">Immeubles</span>
             </div>
           </div>
           <div>
             <div className="flex flex-col items-center justify-center">
               <span className="text-lg text-gray-400">Superficie Totale</span>
-              <span className="text-lg text-gray-500 font-opensans">950m<sup>2</sup></span>
+              <span className="text-lg text-gray-500 font-opensans">
+                {organizations?.reduce(
+                  (acc, val: ReadOrganizationOverviewDto) =>
+                    acc + val.totalSurface,
+                  0
+                )}
+                m<sup>2</sup>
+              </span>
             </div>
           </div>
         </div>
-        <div>
+        <div className="h-[67%] lg:h-[80%] overflow-y-auto">
           <Table
             RowComponent={OrganizationTableRow}
-            rows={[
-              {
-                name: "1 Corporate Dive",
-                type: "---",
-                buildings: 2,
-                area: "223554",
-                image: sky,
-              },
-              {
-                name: "1 Corporate Dive",
-                type: "---",
-                buildings: 1,
-                area: "223554",
-                image: sky2,
-              },
-              {
-                name: "1 Corporate Dive",
-                type: "---",
-                buildings: 4,
-                area: "223554",
-                image: sky3,
-              },
-              {
-                name: "1 Corporate Dive",
-                type: "---",
-                buildings: 3,
-                area: "223554",
-                image: sky4,
-              },
+            rows={organizations!}
+            header={[
+              "Intitulé",
+              "Type",
+              "Nombre d'immeubles",
+              "Superficie totale",
             ]}
-            header={["Intitulé", "Type",  "Nombre d'immeubles", "Superficie totale"]}
-            keys={["name", "type", "buildings", "area"]}
+            keys={["name", "type", "numberOfBuildings", "totalSurface"]}
             filters={[
               { key: "all", title: "Toutes les organisations" },
-              { key: "buildings", title: "Tout les immeubles" },
+              /* { key: "buildings", title: "Tout les immeubles" }, */
             ]}
           />
         </div>

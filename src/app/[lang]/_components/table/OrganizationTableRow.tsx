@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import BuildingAlt from "@/public/building-alt.svg"
+import OrganizationAlt from "@/public/organization-alt.svg"
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -24,7 +24,7 @@ function OrganizationTableRow({ row, keys }:{row:ReadOrganizationOverviewDto,key
               <div key={index} className={`flex flex-row w-full w-1/${keys.length} mx-3 items-center space-x-3`}>
                 <div className="w-9 h-9 rounded-full overflow-hidden object-cover">
                   <Image
-                    src={row.image??BuildingAlt}
+                    src={row.image??OrganizationAlt}
                     alt="site-image"
                     className="w-full h-full"
                   />

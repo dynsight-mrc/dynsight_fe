@@ -1,6 +1,7 @@
 import Image, { StaticImageData } from "next/image";
 import React from "react";
 import { MdLocationPin } from "react-icons/md";
+import { ReadAddressDto } from "@admin/buildings/dto/ReadBuildingDto";
 type BuildingHeaderProps = {
   image: StaticImageData;
   reference: string;
@@ -9,7 +10,7 @@ type BuildingHeaderProps = {
   devicesNumber: string | number;
   blocsNumber: string | number;
   floorsNumber: string | number;
-  address: string;
+  address: ReadAddressDto;
   area: string | number;
 };
 function BuildingHeader({
@@ -92,7 +93,7 @@ function BuildingHeader({
           <div className="w-full  lg:p-0 px-10 flex flex-row justify-between lg:justify-center lg:flex-col items-end">
             <div className="flex flex-row items-center">
               <MdLocationPin className="text-teltonika-800 w-5 h-5 " />
-              <span className="text-gray-500">{address}</span>
+              <span className="text-gray-500">{address.streetNumber +" , "+ address.streetName+" , "+address.streetAddress+ " , "+address.city}</span>
             </div>
             <span className="text-gray-400 font-thin font-opensans">
               {area}m<sup>2</sup>

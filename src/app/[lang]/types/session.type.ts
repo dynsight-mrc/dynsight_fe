@@ -6,8 +6,8 @@ enum Gender {
 }
 export enum UserRole {
   ADMIN = "admin",
-  CO = "company-occupant",
-  OO = "organization-owner",
+  "company-occupant" = "company-occupant",
+  "organization-owner" = "organization-owner",
 }
 export type CustomSession = {
   user: {
@@ -32,6 +32,5 @@ export type CustomSession = {
     };
     permissions: { role: UserRole; organization: "string" };
   };
-
   expires?: ISODateString;
 };

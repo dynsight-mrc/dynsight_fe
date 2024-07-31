@@ -1,48 +1,26 @@
+import React from "react";
 import BuildingTableRow from "@/src/app/[lang]/_components/table/BuildingTableRow";
 import Table from "@/src/app/[lang]/_components/table/Table";
-import sky from "@/public/skyscapper.png"
-import sky2 from "@/public/skyscapper2.jpg"
-import sky3 from "@/public/skyscapper3.jpeg"
-import sky4 from "@/public/skyscapper4.jpeg"
-import React from "react";
-let buildings = [
-    {
-      name: "1 Corporate Drive",
-      type: "Residential",
-      area: "235",
-      floors: 5,
-      image:sky,
-      manager: "user@dynsight.fr",
-    },
-    {
-      name: "1 Corporate Drive",
-      type: "Industrial",
-      area: "355",
-      floors: 1,
-      image:sky2,
 
-      manager: "user@dynsight.fr",
-    },
-    {
-      name: "1 Corporate Drive",
-      type: "Residential",
-      area: "254",
-      floors: 5,
-      image:sky3,
-      manager: "user@dynsight.fr",
-    },
-    {
-      name: "1 Corporate Drive",
-      type: "Hospital",
-      area: "223",
-      floors: 2,
-      image:sky4,
+import sky from "@/public/skyscapper.png";
+import sky2 from "@/public/skyscapper2.jpg";
+import sky3 from "@/public/skyscapper3.jpeg";
+import sky4 from "@/public/skyscapper4.jpeg";
+import { getBuildingsByOrganizationId } from "../../_api/getBuildingsByOrganizationId";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/src/app/api/auth/authOptions";
 
-      manager: "user@dynsight.fr",
-    },
-  ]
 
-function page() {
+async function page({ params }: { params: { organization: string } }) {
+  const session = await getServerSession(authOptions);
+
+  const buildings = await getBuildingsByOrganizationId(
+    session,
+    params.organization
+  );
+
+  console.log(buildings);
+  
   return (
     <div>
       <Table
