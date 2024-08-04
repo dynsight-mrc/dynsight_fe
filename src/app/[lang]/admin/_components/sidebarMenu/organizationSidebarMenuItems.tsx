@@ -44,6 +44,30 @@ export const OrganizationSidebarMenuItems: BlocType[] = [
         singleLink: "users-list",
         link: "/admin/organizations",
       },
+      
+    ],
+  },
+
+  {
+    Icon: SlLocationPin,
+    title: "Paramètres",
+    items: [
+      {
+        name: "Modifier détails",
+        groupLink: "",
+        singleLink: "parameters",
+        groupLinkL2:"update-details",
+        link: "/admin/organizations",
+      },
+      {
+        name: "Ajouter immeuble",
+        groupLink: "",
+        singleLink: "parameters",
+        groupLinkL2:"add-building",
+        link: "/admin/organizations",
+      },
+      
+      
     ],
   },
 ];

@@ -30,7 +30,7 @@ export type CustomSession = {
       language: string;
       theme: string;
     };
-    permissions: { role: UserRole; organization: "string" };
+    permissions: { role: UserRole|string; organization: "string" };
   };
   expires?: ISODateString;
 };

@@ -50,6 +50,7 @@ async function Page({ params }: { params: { organization: string } }) {
       <div className="w-full lg:w-3/4  h-full  ">
         {/* HEADER IMAGE IBANNER */}
         <OrganizationHeader
+          id={organization.id}
           image={sky5}
           title={organization.name}
           area={organization.buildings.reduce(

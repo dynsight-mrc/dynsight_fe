@@ -86,6 +86,7 @@ function NavbarUserNavigationMenu() {
     if(session){
       const {user: { contactInformation, permissions }} = (session as CustomSession) ;
       contactInformation && setContactInformation(contactInformation)
+      //@ts-ignore
       permissions && setPermissions(permissions)
     }
     

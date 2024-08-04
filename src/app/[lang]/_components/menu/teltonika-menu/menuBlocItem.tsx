@@ -111,7 +111,7 @@ export default function MenuBlocItem({
 
   return (
     <Link
-      
+      prefetch={false}
       href={customLink}
       className={`text-gray-500 font-normal font-opensans hover:text-gray-600 hover:translate-x-3 transition-all duration-400 ease-out text-base tracking-wide cursor-pointer ${
         isCurrentPage && "translate-x-3 text-teltonika-900 underline hover:non"

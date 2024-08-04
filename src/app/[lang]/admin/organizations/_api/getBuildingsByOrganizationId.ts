@@ -13,8 +13,6 @@ export const getBuildingsByOrganizationId = async (
     Authorization: `Bearer ${token}`,
   };
 
-  //const headers = new Headers();
-  //headers.append("authorization", `Bearer ${token}`);
   try {
     const res = await fetch(
       `http://38.242.254.49:5000/api/buildings?organization=${organizationId}`,

@@ -6,3 +6,12 @@ export type ReadUserOverview = {
   organization: string;
   role: string;
 };
+
+export type ReadUserByOrganizationId = {
+  id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  role: string;
+};
+

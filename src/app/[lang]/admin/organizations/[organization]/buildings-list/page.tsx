@@ -26,8 +26,8 @@ async function page({ params }: { params: { organization: string } }) {
       <Table
         RowComponent={BuildingTableRow}
         rows={buildings}
-        header={["Intitulé", "Type", "Manager", "Étages", "Superficie"]}
-        keys={["name", "type", "manager", "floors", "area"]}
+        header={["Intitulé", "Type",  "Étages", "Superficie"]}
+        keys={["name", "type", "floors", "surface"]}
         filters={[
           { key: "all", title: "All buildings" },
           { key: "commercial", title: "Commercial" },

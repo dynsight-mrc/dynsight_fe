@@ -16,40 +16,10 @@ export type BuildingInputs = {
   another_id: "string";
 };
 
-function Input({ title, registerKey }: { title: string; registerKey: string }) {
-  const {
-    register,
-    formState: { errors },
-  } = useFormContext();
-  return (
-    <div className="flex flex-col space-y-1 mb-3">
-      <label htmlFor="" className="pl-1">
-        {title}
-      </label>
-      <input
-        {...register(registerKey, { required: "this must be set" })}
-        type="text"
-        className={`p-2 ${
-          errors[registerKey]
-            ? "border-red-600 focus:border focus:text-red-600 focus:border-red-600"
-            : "focus:border focus:text-teltonika-800 focus:border-teltonika-800"
-        } bg-gray-100 outline-none text-gray-500  border border-transparent rounded-md`}
-      />
-      {errors[registerKey] && (
-        <p className="pl-1 text-sm text-red-600">
-          {errors[registerKey]?.message?.toString()}{" "}
-        </p>
-      )}
-    </div>
-  );
-}
+
 
 function BuildingForm() {
-  const {
-    register,
-    formState: { errors },
-    getValues
-  } = useFormContext();
+
   
   return (
     <>
