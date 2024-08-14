@@ -35,7 +35,6 @@ function Page() {
   const postBuilding = useMutation({
     mutationFn: createBuilding,
     onSuccess: (results) => {
-      console.log(results);
       
       toast({
         className: "bg-green-500 text-white",
@@ -118,8 +117,7 @@ function Page() {
           style="lg:grid lg:grid-cols-2 gap-x-3"
           formTile="Généralité"
           descriptionTitle="Informations de Localisation"
-          descriptionText="Lorem ipsum dolor sit amet, consectetur adipiscing elit. rerit. Nam consectetur venenatis gravida. Aliquam erat volutpat. Integer in sagittis nisl. Duis gravida felis velit, eu vehicula purus blan"
-          detailsLink="/admin/sites"
+          descriptionText="Cette section recueille les informations de localisation géographique du bâtiment, telles que l'adresse, la ville, le code postal et les coordonnées GPS. Ces détails sont essentiels pour situer précisément le bâtiment."
         >
           <LocationForm />
         </FormSection>
@@ -127,7 +125,7 @@ function Page() {
           style="lg:grid lg:grid-cols-2 gap-x-3"
           formTile="Généralité"
           descriptionTitle="Détails du Batiment"
-          descriptionText="Lorem ipsum dolor sit amet, consectetur adipiscing elit. rerit. Nam consectetur venenatis gravida. Aliquam erat volutpat. Integer in sagittis nisl. Duis gravida felis velit, eu vehicula purus blan"
+          descriptionText=" veuillez fournir les informations détaillées sur le bâtiment, y compris son nom, sa surface, sa référence, et d'autres caractéristiques importantes. Ces informations permettent de mieux comprendre les spécificités du bâtiment"
           detailsLink="/admin/buildings"
         >
           <BuildingForm />
@@ -136,7 +134,7 @@ function Page() {
         <FormSection
           formTile="Généralité"
           descriptionTitle="Configuration des Étages"
-          descriptionText="Lorem ipsum dolor sit amet, consectetur adipiscing elit. rerit. Nam consectetur venenatis gravida. Aliquam erat volutpat. Integer in sagittis nisl. Duis gravida felis velit, eu vehicula purus blan"
+          descriptionText="vous allez fournir une configuration minimale des étages du bâtiment, incluant le nom et le numéro de chaque étage. Des informations supplémentaires pourront être ajoutées par la suite pour mieux détailler chaque étage"
           supportMultipleForm={true}
           addFormButtonText="Ajouter un étage"
         >
@@ -145,7 +143,7 @@ function Page() {
         <FormSection
           formTile="Généralité"
           descriptionTitle="Configuration des blocs"
-          descriptionText="Lorem ipsum dolor sit amet, consectetur adipiscing elit. rerit. Nam consectetur venenatis gravida. Aliquam erat volutpat. Integer in sagittis nisl. Duis gravida felis velit, eu vehicula purus blan"
+          descriptionText="Cette section concerne la configuration interne des blocs du bâtiment. Vous devrez fournir une configuration minimale pour chaque bloc, incluant son nom et son étage. Des détails supplémentaires pourront être ajoutés ultérieurement si nécessaire"
           supportMultipleForm={true}
           addFormButtonText="Ajouter un bloc"
           detailsLink="/admin/blocs"

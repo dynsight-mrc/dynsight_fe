@@ -1,7 +1,7 @@
 import axios from "@/src/lib/axios";
 import { CustomSession } from "../../../types/session.type";
-import { ReadBuildingDto } from "@admin/buildings/dto/ReadBuildingDto";
 import { Session } from "next-auth";
+import { ReadBuildingDto } from "@admin/buildings/dto/ReadBuildingDto";
 
 export const getBuildingsByOrganizationId = async (
   session: Session|null,

@@ -23,6 +23,11 @@ type ReadFloorDto = {
   rooms: ReadRoomDto[];
 };
 export type ReadBuildingDto = {
+  organization:{
+    name:string,
+    owner:string,
+    id:string,  
+  }
   reference: string;
   name: string;
   constructionYear: number;

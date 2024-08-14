@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import BuildingAlt from "@/public/building-alt.svg"
 
 function BuildingTableRow({ row, keys }:{row:Record<string,any>,keys:string[]}) {
+  
   const path = usePathname()
   return (
     <Link href={`/${path.split("/")[2]}/buildings/${row.id}/overview`} className="cursor-pointer bg-white flex flex-row items-center py-3 border-b border-gray-100 hover:bg-gray-100">
@@ -23,7 +24,7 @@ function BuildingTableRow({ row, keys }:{row:Record<string,any>,keys:string[]}) 
                   />
                 </div>
                 <div className="flex flex-col items-start justify-center leading-tight">
-                  <span className="text-blue-400">#1235667</span>
+                  <span className="text-blue-400">{row.reference}</span>
                   <span>{row["name"]}</span>
                 </div>
               </div>

@@ -17,7 +17,7 @@ export default function SpaceTableRow({ row, keys }:{row:Record<string,any>,keys
           return (
             <div
               key={index}
-              className={`mx-3 sm:text-base text-xs text-gray-600  w-1/${keys.length}`}
+              className={`mx-3 sm:text-base text-xs text-gray-600 w-full  w-1/${keys.length}`}
             >
               
               {key.split(".").length>1?row[`${key.split(".")[0]}`][`${key.split(".")[1]}`]:row[key]}

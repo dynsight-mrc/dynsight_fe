@@ -10,51 +10,13 @@ import sky2 from "@/public/skyscapper2.jpg";
 import sky3 from "@/public/skyscapper3.jpeg";
 import sky4 from "@/public/skyscapper4.jpeg";
 import { useQuery } from "@tanstack/react-query";
-import { getOrganizationById } from "../_api/getOrganization";
 import { useSession } from "next-auth/react";
-import { CustomSession } from "../../../types/session.type";
-import { getBuildingsByOrganizationId } from "../_api/getBuildingsByOrganizationId";
+import { getBuildingsByOrganizationId } from "../_api/get-buildings";
 
-let buildings = [
-  {
-    name: "1 Corporate Drive",
-    type: "Residential",
-    area: "235",
-    floors: 5,
-    image: sky,
-    manager: "user@dynsight.fr",
-  },
-  {
-    name: "1 Corporate Drive",
-    type: "Industrial",
-    area: "355",
-    floors: 1,
-    image: sky2,
 
-    manager: "user@dynsight.fr",
-  },
-  {
-    name: "1 Corporate Drive",
-    type: "Residential",
-    area: "254",
-    floors: 5,
-    image: sky3,
-    manager: "user@dynsight.fr",
-  },
-  {
-    name: "1 Corporate Drive",
-    type: "Hospital",
-    area: "223",
-    floors: 2,
-    image: sky4,
-
-    manager: "user@dynsight.fr",
-  },
-];
 function BuildingsList() {
   const { data: session } = useSession();
-
-  session;
+  
   let params = useParams<{ organization: string; lang: string }>();
 
   const buildingsQuery = useQuery({
@@ -77,7 +39,7 @@ function BuildingsList() {
     <div>
       <Table
         RowComponent={BuildingTableRow}
-        rows={buildings}
+        rows={buildingsQuery.data}
         header={["Intitulé", "Type", "Manager", "Étages", "Superficie"]}
         keys={["name", "type", "manager", "floors", "area"]}
         filters={[

@@ -94,6 +94,7 @@ export const getBuildingsOveview = async (
       console.log("error");
     }
     let data: ReadBuildingOverview[] = await res.json();
+    
     return data;
   } catch (error) {
     console.log(error);

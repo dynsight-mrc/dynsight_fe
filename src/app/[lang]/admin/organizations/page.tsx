@@ -5,7 +5,7 @@ import sky from "@/public/skyscapper.png";
 import sky2 from "@/public/skyscapper2.jpg";
 import sky3 from "@/public/skyscapper3.jpeg";
 import OrganizationTableRow from "../../_components/table/OrganizationTableRow";
-import { getOrganizations } from "./_api/getOrganizations";
+import { getOrganizations } from "./_api/get-organizations";
 import { CustomSession } from "../../types/session.type";
 import { getSession } from "next-auth/react";
 import { getServerSession } from "next-auth";

@@ -35,7 +35,7 @@ export const OrganizationSidebarMenuItems: BlocType[] = [
       {
         name: "Immeubles",
         groupLink: "",
-        singleLink: "buildings-list",
+        singleLink: "buildings",
         link: "/admin/organizations",
       },
       {
@@ -62,8 +62,8 @@ export const OrganizationSidebarMenuItems: BlocType[] = [
       {
         name: "Ajouter immeuble",
         groupLink: "",
-        singleLink: "parameters",
-        groupLinkL2:"add-building",
+        singleLink: "buildings",
+        groupLinkL2:"add",
         link: "/admin/organizations",
       },
       

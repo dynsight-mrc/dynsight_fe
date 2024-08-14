@@ -150,7 +150,7 @@ function BuildingOverview() {
           rows={floors!}
           header={["Intitulé", "Numéro", "Blocs"]}
           keys={["name", "number", "rooms"]}
-          filters={[{ key: "all", title: "All floors" }]}
+          filters={[{ key: "all", title: "Tous les étages" }]}
         />
       </div>
     </div>

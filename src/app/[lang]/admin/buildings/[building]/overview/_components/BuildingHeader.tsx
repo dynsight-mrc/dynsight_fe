@@ -2,6 +2,7 @@ import Image, { StaticImageData } from "next/image";
 import React from "react";
 import { MdLocationPin } from "react-icons/md";
 import { ReadAddressDto } from "@admin/buildings/dto/ReadBuildingDto";
+import Link from "next/link";
 type BuildingHeaderProps = {
   image: StaticImageData;
   reference: string;
@@ -12,6 +13,7 @@ type BuildingHeaderProps = {
   floorsNumber: string | number;
   address: ReadAddressDto;
   area: string | number;
+  buildingId:string;
 };
 function BuildingHeader({
   image,
@@ -23,6 +25,7 @@ function BuildingHeader({
   floorsNumber,
   address,
   area,
+  buildingId
 }: BuildingHeaderProps) {
   return (
     <div className="flex flex-row lg:p-5 p-2 lg:space-x-5 bg-white ">
@@ -48,15 +51,16 @@ function BuildingHeader({
             </div>
             {/* building details  */}
             <div className="flex p-3 lg:p-0 space-x-3">
-              <button className="px-3 py-1 rounded-sm text-white text-sm bg-blue-500 font-opensans uppercase">
+              <Link  href={`/admin/buildings/${buildingId}/floors/add`} className="px-3 py-1 hover:bg-blue-600 transition-all duration-300 ease-out rounded-sm text-white text-sm bg-blue-500 font-opensans uppercase">
                 Ajouter un étage
-              </button>
-              <button className="px-3 py-1 rounded-sm text-white text-sm bg-blue-500 font-opensans uppercase">
+              </Link>
+              <Link  href={`/admin/
+              buildings/${buildingId}/parameters`} className="px-3 py-1 hover:bg-blue-600 transition-all duration-300 ease-out rounded-sm text-white text-sm bg-blue-500 font-opensans uppercase">
                 Modifier Informations
-              </button>
-              <button className="px-3 py-1 rounded-sm text-white text-sm bg-red-500 font-opensans uppercase">
+              </Link>
+              <Link href={'#'} className="px-3 py-1 rounded-sm text-white text-sm bg-red-500 font-opensans uppercase">
                 Supprimer
-              </button>
+              </Link>
             </div>
           </div>
           <div className="p-3 lg:p-0 flex justify-center lg:inline-block">

@@ -15,7 +15,7 @@ import CustomGoogleMap from "../../_components/CustomGoogleMap";
 import OrganizationTableRow from "../../_components/table/OrganizationTableRow";
 import { getDictionary } from "@/src/lib/dictionary";
 import { ReadOrganizationOverviewDto } from "../organizations/dto/read-organization-overview.dto";
-import { getOrganizations } from "../organizations/_api/getOrganizations";
+import { getOrganizations } from "../organizations/_api/get-organizations";
 
 async function Home({ params: { lang } }: { params: { lang: Locale } }) {
   let session = (await getServerSession(authOptions)) as CustomSession;

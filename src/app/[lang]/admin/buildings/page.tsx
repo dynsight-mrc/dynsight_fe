@@ -5,7 +5,7 @@ import sky from "@/public/skyscapper.png"
 import sky2 from "@/public/skyscapper2.jpg"
 import sky3 from "@/public/skyscapper3.jpeg"
 import sky4 from "@/public/skyscapper4.jpeg"
-import { getBuildingsOveview } from "./_api/getBuilding";
+import { getBuildingsOveview } from "./_api/get-building";
 import { authOptions } from "@/src/app/api/auth/authOptions";
 import { getServerSession } from "next-auth";
 import { ReadBuildingOverview } from "./dto/ReadBuildingDto";
@@ -147,9 +147,7 @@ async function page() {
   let session =  await getServerSession(authOptions)
   let buildings : ReadBuildingOverview[] =await getBuildingsOveview(session)
   
-
-  
-   
+    
   return (
     <div>
       <Table

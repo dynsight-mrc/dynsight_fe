@@ -13,11 +13,11 @@ import WeatherWidget from "./_compoenents/WeatherWidget";
 import EnergyWidget from "./_compoenents/EnergyWidget";
 import OrganizationHeader from "./_compoenents/OrganizationHeader";
 import OrganizationBuildingsList from "./_compoenents/BuildingsList/OrganizationBuildingsList";
-import { getOrganizationById } from "../../_api/getOrganization";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/src/app/api/auth/authOptions";
 import { CustomSession } from "@/src/app/[lang]/types/session.type";
 import { ReadOrganizationDto } from "../../dto/read-organization-details.dto";
+import { getOrganizationById } from "../../_api/get-organizations";
 
 const calcaulateRoomsNumber = (organization: ReadOrganizationDto) => {
   let counter = 0;

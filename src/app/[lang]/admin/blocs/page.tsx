@@ -40,7 +40,8 @@ let spaces = [
 async function page() {
   let session =  await getServerSession(authOptions)
   let blocs : ReadBlocOverview[] =await getBlocsOverview(session)
-  
+    console.log(blocs);
+    
   return (
     <div>
       <Table

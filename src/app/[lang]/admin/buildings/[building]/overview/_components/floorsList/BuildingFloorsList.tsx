@@ -9,6 +9,7 @@ type BuildingFloorsListProps = {
   reference: string;
   buildingName:string;
   buildingId: string;
+  organizationId:string;
   floors: any[];
   spaces: any[];
 };
@@ -19,11 +20,12 @@ function BuildingFloorsList({
   buildingName,
   floors,
   spaces,
+  organizationId,
 }: BuildingFloorsListProps) {
   
   return (
     <div className="w-1/2 md:w-1/4  bg-white border-r border-r-gray-200 h-full lg:block hidden">
-      <Link href={`/admin/organizations/${buildingId}/buildings-list`}>
+      <Link href={`/admin/organizations/${organizationId}/buildings-list`}>
         <div className="flex flex-row space-x-3 items-center py-2 hover:bg-blue-50 px-3 border-b border-b-gray-200">
           <VscArrowLeft className="w-5 h-5 text-gray-500" />
           <span className="text-gray-500">

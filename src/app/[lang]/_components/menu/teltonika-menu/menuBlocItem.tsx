@@ -27,12 +27,14 @@ const checkSignleOrGroupCurrentPage = (
   let currentGroupLinkL2 = splitedPath[6];
   let currentGroupLink = splitedPath[4];
   const currentSingleLink = splitedPath[5];
-
+  
+  
   if (currentSingleLinkL2) {
     return currentSingleLinkL2 === singleLinkL2;
   }
-  if (currentGroupLinkL2) {
-    return currentGroupLinkL2 === groupLinkL2;
+  if (currentGroupLinkL2) {    
+    return currentSingleLink+"/"+currentGroupLinkL2 === singleLink+"/"+groupLinkL2;
+    //return currentGroupLinkL2 === groupLinkL2;
   }
 
   if (currentSingleLink && groupLinkL2 === undefined) {

@@ -46,19 +46,21 @@ export const BuildingSidebarMenuItems: BlocType[] = [
   },
   {
     Icon: PiStackLight,
-    title: "Gestion des etages",
+    title: "Gestion des étages",
     items: [
       {
         name: "Liste des étages",
-        groupLink: "",
-        singleLink: "floors-list",
+        
+        groupLink:"",
+        singleLink: "floors",
         link: "/admin/buildings",
       },
 
       {
         name: "Ajouter un étage",
         groupLink: "",
-        singleLink: "add-floor",
+        groupLinkL2:"add",
+        singleLink: "floors",
         link: "/admin/buildings",
       },
     ],
@@ -68,16 +70,18 @@ export const BuildingSidebarMenuItems: BlocType[] = [
     title: "Gestion des blocs",
     items: [
       {
-        name: "Liste des espaces",
+        name: "Liste des blocs",
         groupLink: "",
-        singleLink: "spaces-list",
+        
+        singleLink: "blocs",
         link: "/admin/buildings",
       },
 
       {
-        name: "Ajouter un espace",
+        name: "Ajouter un bloc",
         groupLink: "",
-        singleLink: "add-space",
+        groupLinkL2:"add",
+        singleLink: "blocs",
         link: "/admin/buildings",
       },
       
@@ -91,14 +95,15 @@ export const BuildingSidebarMenuItems: BlocType[] = [
       {
         name: "liste des équipements",
         groupLink: "",
-        singleLink: "devices-list",
+        singleLink: "devices",
         link: "/admin/buildings",
       },
 
       {
         name: "Connecter nouvel equip.",
         groupLink: "",
-        singleLink: "connect-device",
+        groupLinkL2:"connect",
+        singleLink: "devices",
         link: "/admin/buildings",
       },
       

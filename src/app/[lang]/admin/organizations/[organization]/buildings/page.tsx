@@ -6,7 +6,7 @@ import sky from "@/public/skyscapper.png";
 import sky2 from "@/public/skyscapper2.jpg";
 import sky3 from "@/public/skyscapper3.jpeg";
 import sky4 from "@/public/skyscapper4.jpeg";
-import { getBuildingsByOrganizationId } from "../../_api/getBuildingsByOrganizationId";
+import { getBuildingsByOrganizationId } from "../../_api/get-buildings";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/src/app/api/auth/authOptions";
 
