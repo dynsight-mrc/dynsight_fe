@@ -1,6 +1,6 @@
 import { getServerSession } from "next-auth";
 import React from "react";
-import { CustomSession } from "../../types/session.type";
+import { CustomSession } from "../../_common/types/session.type";
 import { authOptions } from "../../../api/auth/authOptions";
 import { Locale } from "@/src/i18n-config";
 import Table from "@/src/app/[lang]/_components/table/Table";

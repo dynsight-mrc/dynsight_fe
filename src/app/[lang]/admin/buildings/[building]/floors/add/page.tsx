@@ -6,13 +6,12 @@ import { useMutation } from "@tanstack/react-query";
 import { useSession } from "next-auth/react";
 
 import { useToast } from "@/src/app/[lang]/_components/shadcn/ui/use-toast";
-import { createBuilding } from "@admin/organizations/_api/post-buildings";
-import { CustomSession } from "@/src/app/[lang]/types/session.type";
+import { CustomSession } from "@/src/app/[lang]/_common/types/session.type";
 import { useParams } from "next/navigation";
-import FormSection from "@admin/organizations/_components/FormSectionLayout";
+import FormSection from "@/src/app/[lang]/admin/_components/FormSectionLayout";
 
-import FloorsConfigurationForm from "@admin/organizations/_components/forms/FloorsConfigurationForm";
-import BlocsConfigurationForm from "@admin/organizations/_components/forms/BlocsConfigurationForm";
+import FloorsConfigurationForm from "@/src/app/[lang]/_components/forms/FloorsConfigurationForm";
+import BlocsConfigurationForm from "@/src/app/[lang]/_components/forms/BlocsConfigurationForm";
 import {   createFloorsWithRooms } from "@admin/buildings/_api/post-floors";
 
 

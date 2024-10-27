@@ -4,14 +4,16 @@ import { VscArrowLeft } from "react-icons/vsc";
 import FloorsListHeaderItem from "./FloorsListHeaderItem";
 import { StaticImageData } from "next/image";
 import FloorListItem from "@/src/app/[lang]/admin/buildings/_components/floorListItem";
+import { ReadFloorDetailsWithRoomsDto } from "@/src/app/[lang]/_common/floors/dtos/read-floors.dto";
+import { ReadRoomWithDetails } from "@/src/app/[lang]/_common/rooms/dtos/read-rooms.dto";
 type BuildingFloorsListProps = {
   image: StaticImageData;
   reference: string;
   buildingName:string;
   buildingId: string;
   organizationId:string;
-  floors: any[];
-  spaces: any[];
+  floors: ReadFloorDetailsWithRoomsDto[];
+  rooms: ReadRoomWithDetails[];
 };
 function BuildingFloorsList({
   image,
@@ -19,7 +21,7 @@ function BuildingFloorsList({
   buildingId,
   buildingName,
   floors,
-  spaces,
+  rooms,
   organizationId,
 }: BuildingFloorsListProps) {
   
@@ -45,7 +47,7 @@ function BuildingFloorsList({
           <FloorListItem
             name={floor.name}
             key={floor.id}
-            spaces={spaces.flat().filter((space) => space.floorId === floor.id)}
+            spaces={rooms.filter((room) => room.floor.id === floor.id)}
           />
         ))}
       </div>

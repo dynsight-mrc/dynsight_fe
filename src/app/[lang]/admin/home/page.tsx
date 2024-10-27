@@ -1,31 +1,32 @@
 import { getServerSession } from "next-auth";
-import React, { useContext } from "react";
-import { CustomSession } from "../../types/session.type";
+import React from "react";
+import { CustomSession } from "../../_common/types/session.type";
 import { authOptions } from "../../../api/auth/authOptions";
 import { Locale } from "@/src/i18n-config";
-import sky4 from "@/public/skyscapper4.jpeg";
-import sky from "@/public/skyscapper.png";
-import sky2 from "@/public/skyscapper2.jpg";
-import sky3 from "@/public/skyscapper3.jpeg";
 import Table from "@/src/app/[lang]/_components/table/Table";
 
 import Link from "next/link";
-import BuildingTableRow from "../../_components/table/BuildingTableRow";
 import CustomGoogleMap from "../../_components/CustomGoogleMap";
 import OrganizationTableRow from "../../_components/table/OrganizationTableRow";
 import { getDictionary } from "@/src/lib/dictionary";
-import { ReadOrganizationOverviewDto } from "../organizations/dto/read-organization-overview.dto";
-import { getOrganizations } from "../organizations/_api/get-organizations";
+import { updateOrganizationWithBuildingStats } from "../organizations/helper-functions/functions";
+import { getOrganizations } from "@common/organizations/api/get-organizations";
+import { ReadOrganizationWithDetailsDto } from "@common/organizations/dtos/read-organizations.dto";
 
 async function Home({ params: { lang } }: { params: { lang: Locale } }) {
   let session = (await getServerSession(authOptions)) as CustomSession;
   let dict = await getDictionary(lang);
-  let organizations: ReadOrganizationOverviewDto[] | undefined =
-    await getOrganizations(session);
-  let {
+ 
+  let organizations: ReadOrganizationWithDetailsDto[] | undefined =
+    await getOrganizations(session,{details:true});
+  
+  let organizationsOverview = organizations?.map(updateOrganizationWithBuildingStats)
+
+    let {
     admin: { home },
   } = dict;
-
+  console.log(organizationsOverview);
+  
   return (
     <div className="text-gray-500  w-full h-full flex flex-col  lg:flex-row font-opensans overflow-hidden">
       <div className="lg:w-1/2 w-full ">
@@ -51,39 +52,39 @@ async function Home({ params: { lang } }: { params: { lang: Locale } }) {
             <div className="flex flex-col items-center justify-center px-8">
               <span className="text-3xl text-gray-500 font-opensans">
                 {organizations?.reduce(
-                  (acc, val: ReadOrganizationOverviewDto) =>
-                    acc + val.numberOfBuildings,
+                  (acc, val: ReadOrganizationWithDetailsDto) =>
+                    acc + val.buildings.length,
                   0
                 )}
               </span>
               <span className="text-xl text-gray-400">Immeubles</span>
             </div>
           </div>
-          <div>
+          {/* <div>
             <div className="flex flex-col items-center justify-center">
               <span className="text-lg text-gray-400">Superficie Totale</span>
               <span className="text-lg text-gray-500 font-opensans">
                 {organizations?.reduce(
-                  (acc, val: ReadOrganizationOverviewDto) =>
-                    acc + val.totalSurface,
+                  (acc, val: ReadOrganizationDocumentWithDetailsDto) =>
+                    acc + val.buildings.,
                   0
                 )}
                 m<sup>2</sup>
               </span>
             </div>
-          </div>
+          </div> */}
         </div>
         <div className="h-[67%] lg:h-[80%] overflow-y-auto">
           <Table
             RowComponent={OrganizationTableRow}
-            rows={organizations!}
+            rows={organizationsOverview!}
             header={[
               "Intitulé",
-              "Type",
+              "Propriétaire",
               "Nombre d'immeubles",
               "Superficie totale",
             ]}
-            keys={["name", "type", "numberOfBuildings", "totalSurface"]}
+            keys={["name", "owner", "numberOfBuildings", "totalSurface"]}
             filters={[
               { key: "all", title: "Toutes les organisations" },
               /* { key: "buildings", title: "Tout les immeubles" }, */

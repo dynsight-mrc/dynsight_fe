@@ -1,4 +1,4 @@
+import { ReadBuildingDto, ReadBuildingWithFloorsDetailsDto } from "@/src/app/[lang]/_common/buildings/dtos/read-buildings.dto";
 import { createContext } from "react";
-import { ReadBuildingDto } from "../../../dto/ReadBuildingDto";
 
-export const BuildingContext = createContext<ReadBuildingDto|null>(null)
+export const BuildingContext = createContext<ReadBuildingWithFloorsDetailsDto|null>(null)

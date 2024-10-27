@@ -1,4 +1,4 @@
-import { BlocType} from "@/src/app/[lang]/types/sidebar.type"
+import { BlocType} from "@/src/app/[lang]/_common/types/sidebar.type"
 import { LuLayoutDashboard } from "react-icons/lu";
 import { MdSensors } from "react-icons/md";
 import { RxActivityLog } from "react-icons/rx";

@@ -1,5 +1,5 @@
 import { SlLocationPin } from "react-icons/sl";
-import { BlocType } from "@/src/app/[lang]/types/sidebar.type";
+import { BlocType } from "@/src/app/[lang]/_common/types/sidebar.type";
 import { BiLeftArrowCircle } from "react-icons/bi";
 
 export const SiteSidebarMenuItems: BlocType[] = [

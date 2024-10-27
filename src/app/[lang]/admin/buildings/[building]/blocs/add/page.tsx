@@ -1,22 +1,20 @@
 'use client'
 import React from 'react'
-import { getFloorsByBuildingId } from '../../../_api/get-floors'
 import { useParams } from 'next/navigation'
 import { useSession } from 'next-auth/react';
-import { CustomSession } from '@/src/app/[lang]/types/session.type';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useToast } from '@/src/app/[lang]/_components/shadcn/ui/use-toast';
-import FormSection from '@admin/organizations/_components/FormSectionLayout';
-import FloorsConfigurationForm from '@admin/organizations/_components/forms/FloorsConfigurationForm';
-import BlocsConfigurationForm from '@admin/organizations/_components/forms/BlocsConfigurationForm';
-import { TailSpin } from 'react-loader-spinner';
-import BlocsConfigurationWithInitiatedFloors from '@admin/organizations/_components/forms/BlocsConfigurationWithInitiatedFloors';
-import { createRooms } from '@admin/buildings/_api/post-rooms';
-import { CreateRooms } from '../../../dto/create-rooms';
+import FormSection from '@/src/app/[lang]/admin/_components/FormSectionLayout';
+import BlocsConfigurationWithInitiatedFloors from '@/src/app/[lang]/_components/forms/BlocsConfigurationWithInitiatedFloors';
+import { getFloors } from '@common/floors/api/get-floors';
+import { CustomSession } from '@common/types/session.type';
+import { createRooms } from '@common/rooms/api/post-rooms';
+import { ReadFloorDto } from '@common/floors/dtos/read-floors.dto';
 
-function page() {
-  const { data: session } = useSession();
+function Page() {
+  const { data: _session } = useSession();
+  let session = _session  as CustomSession
   let params = useParams<{building:string,lang: string}>()
 
   const methods = useForm();
@@ -51,14 +49,13 @@ function page() {
   let floorsQuery = useQuery({
     queryKey: ["floors", { building: params.building }],
     queryFn: () =>
-      getFloorsByBuildingId( session, params.building ),
+      //getFloors( session,{details:false},[{name:"buildingId",value:params.building}] ),
+    getFloors( session,undefined,[{"name":"buildingId","value":params.building}] ),
   });
 
 
-  if (floorsQuery.isLoading) {
-    console.log("loading");
-    
-    return <div className='pt-52 flex justify-center items-center'><span>Chargement ...</span></div>;
+  if (floorsQuery.isLoading) {    
+    return <div className='pt-52 flex justify-center items-center'><span>Chargement des paramètres ...</span></div>;
   }
   if(floorsQuery.isSuccess){    
     console.log(floorsQuery.data);
@@ -74,7 +71,7 @@ function page() {
         addFormButtonText="Ajouter un bloc"
         detailsLink="/admin/blocs"
       >
-        <BlocsConfigurationWithInitiatedFloors floors={floorsQuery.data}/>
+        <BlocsConfigurationWithInitiatedFloors floors={floorsQuery.data as ReadFloorDto[]}/>
       </FormSection>
       
       <div className="w-full flex flex-row justify-center py-5">
@@ -103,4 +100,4 @@ function page() {
   )
 }
 
-export default page
+export default Page

@@ -8,7 +8,7 @@ import { signIn, useSession } from "next-auth/react";
 import { BsEye, BsEyeSlash } from "react-icons/bs";
 import { TailSpin } from "react-loader-spinner";
 import { Locale } from "@/src/i18n-config";
-import { CustomSession } from "../../types/session.type";
+import { CustomSession } from "../../_common/types/session.type";
 import { UsersHomes } from "../_types/usersHomes";
 import { getDictionary } from "@/src/lib/dictionary";
 

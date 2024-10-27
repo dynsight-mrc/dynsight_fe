@@ -1,120 +1,21 @@
 import FloorTableRow from "@/src/app/[lang]/_components/table/FloorTableRow";
 import Table from "@/src/app/[lang]/_components/table/Table";
-import EnergyWidget from "@/src/app/[lang]/admin/organizations/[organization]/overview/_compoenents/EnergyWidget";
-import WeatherWidget from "@/src/app/[lang]/admin/organizations/[organization]/overview/_compoenents/WeatherWidget";
-import Widget from "@/src/app/[lang]/admin/organizations/[organization]/overview/_compoenents/Widget";
-import WorkingHoursWidget from "@/src/app/[lang]/admin/organizations/[organization]/overview/_compoenents/WorkingHoursWidget";
+import EnergyWidget from "@/src/app/[lang]/admin/organizations/[organization]/overview/_components/EnergyWidget";
+import WeatherWidget from "@/src/app/[lang]/admin/organizations/[organization]/overview/_components/WeatherWidget";
+import Widget from "@/src/app/[lang]/admin/organizations/[organization]/overview/_components/Widget";
+import WorkingHoursWidget from "@/src/app/[lang]/admin/organizations/[organization]/overview/_components/WorkingHoursWidget";
 import React, { useContext } from "react";
 import { GoBell } from "react-icons/go";
 import { MdDeviceHub, MdOutlineSensors } from "react-icons/md";
 
 import { BuildingContext } from "../../context/BuildingContext";
-/* let floors = [
-  {
-    buildingId: "1",
-    id: "1",
-    name: "Floor01",
-    spaces: 2,
-    sensors: 12,
-  },
-  {
-    buildingId: "1",
-    id: "2",
-    name: "Floor02",
-    spaces: 2,
-    sensors: 20,
-  },
-  {
-    buildingId: "1",
-    id: "1",
-    name: "Floor01",
-    spaces: 2,
-    sensors: 12,
-  },
-  {
-    buildingId: "1",
-    id: "2",
-    name: "Floor02",
-    spaces: 2,
-    sensors: 20,
-  },
-  {
-    buildingId: "1",
-    id: "1",
-    name: "Floor01",
-    spaces: 2,
-    sensors: 12,
-  },
-  {
-    buildingId: "1",
-    id: "2",
-    name: "Floor02",
-    spaces: 2,
-    sensors: 20,
-  },
-  {
-    buildingId: "1",
-    id: "1",
-    name: "Floor01",
-    spaces: 2,
-    sensors: 12,
-  },
-  {
-    buildingId: "1",
-    id: "2",
-    name: "Floor02",
-    spaces: 2,
-    sensors: 20,
-  },
-  {
-    buildingId: "1",
-    id: "1",
-    name: "Floor01",
-    spaces: 2,
-    sensors: 12,
-  },
-  {
-    buildingId: "1",
-    id: "2",
-    name: "Floor02",
-    spaces: 2,
-    sensors: 20,
-  },
-  {
-    buildingId: "1",
-    id: "1",
-    name: "Floor01",
-    spaces: 2,
-    sensors: 12,
-  },
-  {
-    buildingId: "1",
-    id: "2",
-    name: "Floor02",
-    spaces: 2,
-    sensors: 20,
-  },
-  {
-    buildingId: "1",
-    id: "1",
-    name: "Floor01",
-    spaces: 2,
-    sensors: 12,
-  },
-  {
-    buildingId: "1",
-    id: "2",
-    name: "Floor02",
-    spaces: 2,
-    sensors: 20,
-  },
-  
-]; */
+import { ReadFloorDetailsWithRoomsDto, ReadFloorDto } from "@/src/app/[lang]/_common/floors/dtos/read-floors.dto";
+
 function BuildingOverview() {
   const building = useContext(BuildingContext);
   let floors =
     building &&
-    building.floors.map((floor) => ({ ...floor, rooms: floor.rooms.length }));
+    building.floors.map((floor:ReadFloorDetailsWithRoomsDto) => ({ ...floor, rooms: floor.rooms.length }));
   //const <build</build>ing :ReadBuildingDto = await getBuildingById(session,params.building)
   //let floors = building.floors.map(floor=>({...floor,rooms:floor.rooms.length}))
   return (

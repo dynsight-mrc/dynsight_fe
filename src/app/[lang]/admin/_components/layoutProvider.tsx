@@ -11,6 +11,7 @@ import { SiteSidebarMenuItems } from "./sidebarMenu/siteSidebarMenuItems";
 import { BuildingSidebarMenuItems} from "./sidebarMenu/buildingSidebarMenuItems";
 import { DeviceSidebarMenuItems } from "./sidebarMenu/deviceSidebarMenuItems";
 import { OrganizationSidebarMenuItems } from "./sidebarMenu/organizationSidebarMenuItems";
+import { FloorSidebarMenuItems } from "./sidebarMenu/floorSidebarMenuItems";
 
 
 
@@ -18,7 +19,8 @@ const sidebarMenuMapper :Record<string,any> = {
   home:SidebarMenuItems,
   organizations:OrganizationSidebarMenuItems,
   buildings:BuildingSidebarMenuItems,
-  devices:DeviceSidebarMenuItems
+  devices:DeviceSidebarMenuItems,
+  floors:FloorSidebarMenuItems
 }
 
 function LayoutProvider({

@@ -1,5 +1,5 @@
 import React from "react";
-import { CustomSession } from "../../types/session.type";
+import { CustomSession } from "../../_common/types/session.type";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../../api/auth/authOptions";
 import TeltonikaWidget from "./_components/widgets/teltonikaWidget";

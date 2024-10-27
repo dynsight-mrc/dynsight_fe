@@ -11,7 +11,9 @@ import sky3 from "@/public/skyscapper3.jpeg";
 import sky4 from "@/public/skyscapper4.jpeg";
 import { useQuery } from "@tanstack/react-query";
 import { useSession } from "next-auth/react";
-import { getBuildingsByOrganizationId } from "../_api/get-buildings";
+import { getManyBuildingsWithFloorsDetails } from "@common/buildings/api/get-buildings";
+import { CustomSession } from "../../../_common/types/session.type";
+import { ReadBuildingWithFloorsDetailsDto } from "../../../_common/buildings/dtos/read-buildings.dto";
 
 
 function BuildingsList() {
@@ -21,8 +23,8 @@ function BuildingsList() {
 
   const buildingsQuery = useQuery({
     queryKey: ["buildings", { organization: params.organization }],
-    queryFn: () =>
-      getBuildingsByOrganizationId( session, params.organization ),
+    queryFn: ():Promise<ReadBuildingWithFloorsDetailsDto[]> =>
+      getManyBuildingsWithFloorsDetails( session as CustomSession, [{orgnizarionId:params.organization}] ),
   });
   if (buildingsQuery.isLoading) {
     console.log("loading");
@@ -39,7 +41,7 @@ function BuildingsList() {
     <div>
       <Table
         RowComponent={BuildingTableRow}
-        rows={buildingsQuery.data}
+        rows={buildingsQuery.data!}
         header={["Intitulé", "Type", "Manager", "Étages", "Superficie"]}
         keys={["name", "type", "manager", "floors", "area"]}
         filters={[

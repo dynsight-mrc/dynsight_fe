@@ -1,27 +1,27 @@
 "use client";
 import React from "react";
 import { FormProvider, useForm } from "react-hook-form";
-import BuildingForm from "../_components/forms/BuildingForm";
-import FloorsConfigurationForm from "../_components/forms/FloorsConfigurationForm";
-import FormSection from "../_components/FormSectionLayout";
-import BlocsConfigurationForm from "../_components/forms/BlocsConfigurationForm";
-import UsersConfigurationForm from "../_components/forms/UsersConfigurationForm";
+import BuildingForm from "../../../_components/forms/building/BuildingForm";
+import FloorsConfigurationForm from "../../../_components/forms/FloorsConfigurationForm";
+import FormSection from "../../_components/FormSectionLayout";
+import BlocsConfigurationForm from "../../../_components/forms/BlocsConfigurationForm";
+import UsersConfigurationForm from "../../../_components/forms/UsersConfigurationForm";
 import { TailSpin } from "react-loader-spinner";
-import OrganizationConfigurationForm from "../_components/forms/OrganizationConfigurationForm";
+import OrganizationConfigurationForm from "../../../_components/forms/OrganizationConfigurationForm";
 import { useMutation } from "@tanstack/react-query";
 import { createOrganization } from "../_api/post-organization";
 import { useSession } from "next-auth/react";
-import { CustomSession } from "../../../types/session.type";
+import { CustomSession } from "../../../_common/types/session.type";
 
 import { useToast } from "@/src/app/[lang]/_components/shadcn/ui/use-toast";
-import LocationForm from "../_components/forms/LocationForm";
+import LocationForm from "../../../_components/forms/LocationForm";
 
 function Page() {
   const { data: _session } = useSession();
   const session = _session as CustomSession;
   const methods = useForm({
     defaultValues: {
-      organizationDetails:undefined,
+      organization:undefined,
       building: undefined,
       floors: undefined,
       location: undefined,
@@ -56,6 +56,7 @@ function Page() {
     
     postOrganization.mutateAsync({ session, data });
   };
+
 
   const createAccount = ()=>{
     let data ={

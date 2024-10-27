@@ -1,5 +1,5 @@
 import { SlLocationPin } from "react-icons/sl";
-import { BlocType } from "@/src/app/[lang]/types/sidebar.type";
+import { BlocType } from "@/src/app/[lang]/_common/types/sidebar.type";
 import { BiLeftArrowCircle } from "react-icons/bi";
 
 export const OrganizationSidebarMenuItems: BlocType[] = [
@@ -41,7 +41,7 @@ export const OrganizationSidebarMenuItems: BlocType[] = [
       {
         name: "Utilisateurs",
         groupLink: "",
-        singleLink: "users-list",
+        singleLink: "users",
         link: "/admin/organizations",
       },
       
@@ -56,7 +56,7 @@ export const OrganizationSidebarMenuItems: BlocType[] = [
         name: "Modifier détails",
         groupLink: "",
         singleLink: "parameters",
-        groupLinkL2:"update-details",
+        groupLinkL2:"",
         link: "/admin/organizations",
       },
       {

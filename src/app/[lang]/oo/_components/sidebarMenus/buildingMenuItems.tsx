@@ -1,4 +1,4 @@
-import { BlocType } from "@/src/app/[lang]/types/sidebar.type";
+import { BlocType } from "@/src/app/[lang]/_common/types/sidebar.type";
 import { BsBell, BsBuilding } from "react-icons/bs";
 import { MdSensors } from "react-icons/md";
 import { HiOutlineSquare3Stack3D } from "react-icons/hi2";

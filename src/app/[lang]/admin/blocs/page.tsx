@@ -3,50 +3,19 @@ import Table from "../../_components/table/Table";
 import SpaceTableRow from "../../_components/table/SpaceTableRow";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/src/app/api/auth/authOptions";
-import { ReadBlocOverview } from "./dto/read-bloc.dto";
-import { getBlocsOverview } from "./_api/getBlocs";
+import { ReadRoomWithDetails } from "./dto/read-rooms.dto";
+import { getRooms } from "@common/rooms/api/get-rooms";
 
 
-
-let spaces = [
-  {
-    name: "Office01",
-    site: "Group Driving Association 1",
-    building: "Corporate driving",
-    area: "22",
-
-    floor: "Floor01",
-    sensors: 3,
-  },
-  {
-    name: "Office02",
-    site: "Group Driving Association 1",
-    building: "Corporate driving",
-    area: "5",
-
-    floor: "Floor01",
-    sensors: 2,
-  },
-  {
-    name: "Office03",
-    site: "Group Driving Association 1",
-    building: "Corporate driving",
-    area: "5",
-
-    floor: "Floor02",
-    sensors: 1,
-  },
-];
 async function page() {
   let session =  await getServerSession(authOptions)
-  let blocs : ReadBlocOverview[] =await getBlocsOverview(session)
-    console.log(blocs);
+  let rooms : ReadRoomWithDetails[] =await getRooms(session,{details:true})
     
   return (
     <div>
       <Table
         RowComponent={SpaceTableRow}
-        rows={blocs}
+        rows={rooms}
         header={[
           "Intitulé", "Organisation", "Immeuble", "Étage", "Équipements","Superficie"
         ]}

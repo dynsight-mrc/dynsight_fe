@@ -1,8 +1,10 @@
 import axios from "@/src/lib/axios";
-import { CustomSession } from "../../../types/session.type";
+import { CustomSession } from "@common/types/session.type";
 
 export const createOrganization = async ({session, data}:{session:CustomSession,data:any}) => {    
-  const { token } = session.user;
+  console.log(session);
+  
+  const token  = session.user.token;
 
   let config = {
     headers: {

@@ -4,15 +4,15 @@ import OrganizationAlt from "@/public/organization-alt.svg"
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ReadOrganizationOverviewDto } from "../../admin/organizations/dto/read-organization-overview.dto";
-//import {ReadOrganizationOverviewDto} from "@/src/app/[lang]/admin/organizations/dto/read-organization-overview.dto"
+import { ReadOrganizationWithDetailsDto } from "../../_common/organizations/dtos/read-organizations.dto";
+
 function generateRandomNumber() {
   const min = Math.pow(10, 9); // 10^9
   const max = Math.pow(10, 10) - 1; // 10^10 - 1
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function OrganizationTableRow({ row, keys }:{row:ReadOrganizationOverviewDto,keys:string[]}) {
+function OrganizationTableRow({ row, keys }:{row:Record<string,any>,keys:string[]}) {
 
   const path = usePathname()
   return (
@@ -40,7 +40,8 @@ function OrganizationTableRow({ row, keys }:{row:ReadOrganizationOverviewDto,key
               key={index}
               className={`mx-3 sm:text-base text-xs text-gray-600 w-full  w-1/${keys.length}`}
             >
-              {row[key as  keyof ReadOrganizationOverviewDto]}
+              
+              {row[key as  keyof ReadOrganizationWithDetailsDto]}
             </div>
           );
         })}

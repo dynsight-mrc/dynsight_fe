@@ -1,17 +1,11 @@
 "use client";
-import React, { useState } from "react";
-import { PiStackSimpleLight } from "react-icons/pi";
+import React from "react";
 
 import Link from "next/link";
-import { BiDoorOpen } from "react-icons/bi";
-function generateRandomNumber() {
-  const min = Math.pow(10, 9); // 10^9
-  const max = Math.pow(10, 10) - 1; // 10^10 - 1
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+
 export default function SpaceTableRow({ row, keys }:{row:Record<string,any>,keys:string[]}) {
   return (
-    <Link href={`/admin/spaces/${row.id}/overview`} className="cursor-pointer bg-white flex flex-row items-center py-3 border-b border-gray-100 hover:bg-gray-100">
+    <Link href={`/admin/blocs/${row.id}/overview`} className="cursor-pointer bg-white flex flex-row items-center py-3 border-b border-gray-100 hover:bg-gray-100">
       <div className="flex w-full flex-row items-center justify-between ">
         {keys.map((key, index) => {
           return (

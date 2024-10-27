@@ -1,158 +1,26 @@
 import React from "react";
 import Table from "../../_components/table/Table";
 import BuildingTableRow from "../../_components/table/BuildingTableRow";
-import sky from "@/public/skyscapper.png"
-import sky2 from "@/public/skyscapper2.jpg"
-import sky3 from "@/public/skyscapper3.jpeg"
-import sky4 from "@/public/skyscapper4.jpeg"
-import { getBuildingsOveview } from "./_api/get-building";
+
 import { authOptions } from "@/src/app/api/auth/authOptions";
 import { getServerSession } from "next-auth";
-import { ReadBuildingOverview } from "./dto/ReadBuildingDto";
+import { CustomSession } from "@common/types/session.type";
+import { getManyBuildingsWithFloorsDetails } from "@common/buildings/api/get-buildings";
+import { updateBuildingWithFloorsAndRoomsStats } from "@common/buildings/helper-functions";
+import { ReadBuildingWithFloorsDetailsDto } from "@common/buildings/dtos/read-buildings.dto";
 
-let buildings = [
-  {
-    name: "1 Corporate Drive",
-    type: "Hospital",
-    site:"Group Driving Association 1",
-    area: "223554",
-    floors: 3,
-    image:sky,
-    manager: "user@dynsight.fr",
-  },
-  {
-    name: "1 Corporate Drive",
-    type: "Hotel",
-    site:"Group Driving Association1",
 
-    area: "223554",
-    floors: 11,
-    image:sky2,
-    manager: "user@dynsight.fr",
-  },
-  {
-    name: "1 Corporate Drive",
-    site:"Group Driving Association 2",
-
-    type: "Commercial",
-    area: "223554",
-    floors: 3,
-    image:sky3,
-    manager: "user@dynsight.fr",
-  },
-  {
-    name: "1 Corporate Drive",
-    site:"Group Driving Association",
-
-    type: "Commercial",
-    area: "223554",
-    floors: 2,
-    image:sky4,
-    manager: "user@dynsight.fr",
-  },
-  {
-    name: "1 Corporate Drive",
-    site:"Group Driving Association 3",
-
-    type: "Residential",
-    area: "223554",
-    floors: 5,
-    image:sky,
-    manager: "user@dynsight.fr",
-  },
-  {
-    name: "1 Corporate Drive",
-    site:"Group Driving Association 2",
-
-    type: "Commercial",
-    area: "223554",
-    floors: 4,
-    image:sky3,
-    manager: "user@dynsight.fr",
-  },
-  {
-    name: "1 Corporate Drive",
-    site:"Group Driving Association 4" ,
-
-    type: "Industrial",
-    area: "223554",
-    floors: 2,
-    image:sky2,
-    manager: "user@dynsight.fr",
-  },
-
-  {
-    name: "1 Corporate Drive",
-    site:"Group Driving Association",
-
-    type: "Residential",
-    area: "223554",
-    floors: 5,
-    image:sky,
-    manager: "user@dynsight.fr",
-  },
-  {
-    name: "1 Corporate Drive",
-    type: "Industrial",
-    site:"Group Driving Association 2",
-
-    area: "223554",
-    floors: 1,
-    image:sky4,
-    manager: "user@dynsight.fr",
-  },
-  {
-    name: "1 Corporate Drive",
-    site:"Group Driving Association 4",
-
-    type: "Residential",
-    area: "223554",
-    floors: 5,
-    image:sky2,
-    manager: "user@dynsight.fr",
-  },
-  {
-    name: "1 Corporate Drive",
-    site:"Group Driving Association 2",
-
-    type: "Hospital",
-    area: "223554",
-    floors: 2,
-    image:sky,
-    manager: "user@dynsight.fr",
-  },
-  {
-    name: "1 Corporate Drive",
-    site:"Group Driving Association 3",
-
-    type: "Commercial",
-    area: "223554",
-    floors: 10,
-    image:sky2,
-    manager: "user@dynsight.fr",
-  },
-  {
-    name: "1 Corporate Drive",
-    type: "Hotel",
-    site:"Group Driving Association 2",
-
-    area: "223554",
-    floors: 13,
-    image:sky3,
-    manager: "user@dynsight.fr",
-  },
-]
 async function page() {
+  let session =  (await getServerSession(authOptions))as CustomSession
+  let buildings : ReadBuildingWithFloorsDetailsDto[] =await getManyBuildingsWithFloorsDetails(session)  
+ 
+  let buildingWithFloorAndStats = buildings.map(updateBuildingWithFloorsAndRoomsStats)
   
-  let session =  await getServerSession(authOptions)
-  let buildings : ReadBuildingOverview[] =await getBuildingsOveview(session)
-  
-    
   return (
     <div>
       <Table
         RowComponent={BuildingTableRow}
-        rows={buildings}
+        rows={buildingWithFloorAndStats}
         header={["Intitulé","Organisation", "Type", "Propriétaire", "Étages","Blocs", "Superfice"]}
         keys={["name","organization.name", "type",  "organization.owner", "numberOfFloors","numberOfRooms","surface"]}
         filters={[

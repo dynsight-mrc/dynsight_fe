@@ -6,14 +6,14 @@ import { useMutation } from "@tanstack/react-query";
 import { useSession } from "next-auth/react";
 
 import { useToast } from "@/src/app/[lang]/_components/shadcn/ui/use-toast";
-import { createBuilding } from "@admin/organizations/_api/post-buildings";
-import { CustomSession } from "@/src/app/[lang]/types/session.type";
+import { createBuildingWithDetails } from "@common/buildings/api/post-buildings";
+import { CustomSession } from "@/src/app/[lang]/_common/types/session.type";
 import { useParams } from "next/navigation";
-import FormSection from "@admin/organizations/_components/FormSectionLayout";
-import LocationForm from "@admin/organizations/_components/forms/LocationForm";
-import BuildingForm from "@admin/organizations/_components/forms/BuildingForm";
-import FloorsConfigurationForm from "@admin/organizations/_components/forms/FloorsConfigurationForm";
-import BlocsConfigurationForm from "@admin/organizations/_components/forms/BlocsConfigurationForm";
+import FormSection from "@/src/app/[lang]/admin/_components/FormSectionLayout";
+import LocationForm from "@/src/app/[lang]/_components/forms/LocationForm";
+import BuildingForm from "@/src/app/[lang]/_components/forms/building/BuildingForm";
+import FloorsConfigurationForm from "@/src/app/[lang]/_components/forms/FloorsConfigurationForm";
+import BlocsConfigurationForm from "@/src/app/[lang]/_components/forms/BlocsConfigurationForm";
 
 
 function Page() {
@@ -33,7 +33,7 @@ function Page() {
   const { toast } = useToast();
 
   const postBuilding = useMutation({
-    mutationFn: createBuilding,
+    mutationFn: createBuildingWithDetails,
     onSuccess: (results) => {
       
       toast({

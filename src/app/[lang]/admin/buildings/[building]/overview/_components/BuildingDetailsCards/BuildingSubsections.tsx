@@ -4,8 +4,8 @@ import BuildingOverview from "./BuildingOverview";
 import BuildingIdentity from "./BuildingIdentity";
 import BuildingCharacteristics from "./BuildingCharacteristics";
 import BuildingSpecialActivities from "./BuildingSpecialActivities";
-import { ReadBuildingDto } from "@admin/buildings/dto/ReadBuildingDto";
 import { BuildingContext } from "../../context/BuildingContext";
+import { ReadBuildingDto, ReadBuildingWithFloorsAndStatsDto, ReadBuildingWithFloorsDetailsDto } from "@/src/app/[lang]/_common/buildings/dtos/read-buildings.dto";
 
 const subsectionsMapper: Record<string, React.ElementType> = {
   summary: BuildingOverview,
@@ -46,7 +46,7 @@ function BuildingSubsectionMenuItem({
   );
 }
 
-function BuildingSubsections({building}:{building:ReadBuildingDto}) {
+function BuildingSubsections({building}:{building:ReadBuildingWithFloorsDetailsDto}) {
   const [subsection, setSubsection] = useState<string>("summary");
   const toggleBuildingSubection = (subsection: string) => {
     setSubsection(subsection);

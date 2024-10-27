@@ -1,6 +1,6 @@
 import { LuLayoutDashboard } from "react-icons/lu";
 import { HiOutlineUsers } from "react-icons/hi";
-import { BlocType } from "@/src/app/[lang]/types/sidebar.type";
+import { BlocType } from "@/src/app/[lang]/_common/types/sidebar.type";
 import { SlEnergy } from "react-icons/sl";
 import { BsBell } from "react-icons/bs";
 import { VscTools } from "react-icons/vsc";

@@ -1,12 +1,14 @@
-export type ReadOrganizationOverviewDto = {
-    name: string,
-    reference: string,
-    description: string,
-    owner: string,
-    numberOfBuildings:number,
-    totalSurface:number,
-    id: string,
-    type: string,
-    image?:string
+import { ReadBuildingwithDetailsDto } from "@/src/app/[lang]/_common/buildings/dtos/read-buildings.dto";
 
+export type ReadOrganizationDocumentWithBuildingStats = {
+  name: string;
+  reference: string;
+  description: string;
+  owner: string;
+  buildings: ReadBuildingwithDetailsDto[];
+  id: string;
+  type: string;
+  image?: string;
+  numberOfBuildings:number;
+  totalSurface:number
 }

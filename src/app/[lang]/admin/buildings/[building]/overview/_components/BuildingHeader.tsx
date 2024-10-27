@@ -1,8 +1,9 @@
 import Image, { StaticImageData } from "next/image";
 import React from "react";
 import { MdLocationPin } from "react-icons/md";
-import { ReadAddressDto } from "@admin/buildings/dto/ReadBuildingDto";
 import Link from "next/link";
+import { AddressDto } from "@/src/app/[lang]/_common/address/dtos/address.dto";
+
 type BuildingHeaderProps = {
   image: StaticImageData;
   reference: string;
@@ -11,7 +12,7 @@ type BuildingHeaderProps = {
   devicesNumber: string | number;
   blocsNumber: string | number;
   floorsNumber: string | number;
-  address: ReadAddressDto;
+  address: AddressDto;
   area: string | number;
   buildingId:string;
 };
@@ -54,8 +55,7 @@ function BuildingHeader({
               <Link  href={`/admin/buildings/${buildingId}/floors/add`} className="px-3 py-1 hover:bg-blue-600 transition-all duration-300 ease-out rounded-sm text-white text-sm bg-blue-500 font-opensans uppercase">
                 Ajouter un étage
               </Link>
-              <Link  href={`/admin/
-              buildings/${buildingId}/parameters`} className="px-3 py-1 hover:bg-blue-600 transition-all duration-300 ease-out rounded-sm text-white text-sm bg-blue-500 font-opensans uppercase">
+              <Link  href={`/admin/buildings/${buildingId}/parameters`} className="px-3 py-1 hover:bg-blue-600 transition-all duration-300 ease-out rounded-sm text-white text-sm bg-blue-500 font-opensans uppercase">
                 Modifier Informations
               </Link>
               <Link href={'#'} className="px-3 py-1 rounded-sm text-white text-sm bg-red-500 font-opensans uppercase">

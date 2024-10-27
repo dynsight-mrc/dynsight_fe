@@ -13,7 +13,7 @@ import { MdOutlineLogout } from "react-icons/md";
 import { VscSettingsGear } from "react-icons/vsc";
 import { VscBell } from "react-icons/vsc";
 import { signOut, useSession } from "next-auth/react";
-import { CustomSession } from "@/src/app/[lang]/types/session.type";
+import { CustomSession } from "@/src/app/[lang]/_common/types/session.type";
 function NavbarLogo() {
   return (
     <div className="flex flex-row items-center space-x-2">

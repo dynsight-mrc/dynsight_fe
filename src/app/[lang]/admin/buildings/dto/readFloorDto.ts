@@ -11,5 +11,5 @@ export type ReadFloorDto = {
     name: string;
     buildingId: string;
     id: string;
-    rooms: ReadRoomDto[];
+    organiaztionId:string
   };

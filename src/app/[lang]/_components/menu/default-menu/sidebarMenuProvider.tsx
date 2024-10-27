@@ -2,7 +2,7 @@
 import React from "react";
 
 
-import { CustomSession } from "../../../types/session.type";
+import { CustomSession } from "../../../_common/types/session.type";
 import { useSession } from "next-auth/react";
 
 import OrganizationOwnerSidebarMenuItems from "../../../oo/_components/organizationOwnerSidebarMenuItems";
